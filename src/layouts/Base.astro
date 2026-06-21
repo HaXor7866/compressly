@@ -8,7 +8,7 @@ export interface Props {
 }
 const { title, description, canonical, ogImage = '/og-image.png' } = Astro.props;
 const keywords = Astro.props.keywords || '';
-const siteUrl = 'https://compressly.vercel.app';
+const siteUrl = 'https://compresspdfonline.com';
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url.pathname;
 ---
 <!DOCTYPE html>

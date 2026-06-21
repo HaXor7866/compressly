@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://compressly.vercel.app/sitemap.xml
+Sitemap: https://compresspdfonline.com/sitemap.xml

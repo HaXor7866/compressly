@@ -2,9 +2,11 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base
-  title="Free Image Compressor Online – JPG, PNG, WEBP | Compressly"
-  description="Compress JPG, PNG, and WEBP images online for free. Adjust quality with a slider, see before/after file size, and download instantly. No upload limits."
+  title="Compress PDF Online — Free PDF Compressor & Image Compressor | Compressly"
+  description="Compress PDF and images online for free. Learn how to compress a PDF or compress images (JPG, PNG, WEBP) with our fast, private, in-browser tool."
   canonical="/"
+  ogImage="/og-image.png"
+  keywords="Compress pdf, compress pdf file, compress image, compress jpg, how to compress a pdf, how to compress pdf files, compress"
 >
 
 <!-- ── HERO ── -->
@@ -129,34 +131,248 @@ import Base from '../layouts/Base.astro';
   </div>
 </section>
 
-<!-- ── FAQ (SEO) ── -->
-<section class="section-sm" style="border-top: 1px solid var(--hairline);">
-  <div class="container" style="max-width:720px;">
-    <h2 class="heading-lg" style="margin-bottom:40px; text-align:center;">Frequently Asked Questions</h2>
-    <div style="display:flex; flex-direction:column; gap:0;" id="faq">
-      <div class="faq-item">
-        <button class="faq-q">Is Compressly free to use?</button>
-        <div class="faq-a"><p>Yes, completely free. No signup, no limits, no watermark.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Are my images uploaded to a server?</button>
-        <div class="faq-a"><p>No. Compression happens entirely in your browser using the Canvas API. Your files never leave your device.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What quality setting should I use?</button>
-        <div class="faq-a"><p>75% is the sweet spot for web images — typically 60-80% size reduction with barely visible quality loss. For social media, 60% works great.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Can I compress multiple images at once?</button>
-        <div class="faq-a"><p>Yes! Select or drag multiple files at once and click "Compress All".</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Does PNG compression work the same way?</button>
-        <div class="faq-a"><p>PNG files are converted to optimized PNG. For maximum compression, consider converting PNG to JPG using the output format option.</p></div>
-      </div>
+
+
+<!-- ── SEO CONTENT: 600-word keyword-optimized description for homepage ── -->
+<section id="seo-content" class="section" aria-label="About Compressly - Compress PDF and Images">
+  <div class="container" style="max-width:880px;">
+    <h2 class="heading-lg" style="margin-bottom:20px; text-align:left;">Compress PDF, Images, and Save Space — Fast & Private</h2>
+    <p class="body-lg" style="color:var(--body); text-align:left;">
+      Compress pdf files quickly and securely with Compressly — a free, browser-based tool built for speed, privacy, and simplicity. If you're searching for how to compress a pdf or how to compress pdf files without losing quality, Compressly gives you an easy, no-friction solution. Our tool lets you compress pdf, compress jpg, and optimize web images (PNG, WEBP) right in your browser so your files never leave your device.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      Many people need to compress pdf file attachments for email, reduce upload times, or shrink archival documents. Compressly focuses on smart compression that balances file size and visual quality. Choose a target quality, preview results, and download instantly. Whether you need to compress pdf for work, school, or sharing photos, our interface makes it simple to compress image files and PDF documents with a single click.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      Why use Compressly? First, it runs entirely in your web browser — that means privacy by design: we never upload your files to any server. Second, it supports the formats you use most: JPG, PNG, WEBP, and PDF. Third, compressing is fast because all processing happens locally. If you want to compress jpg or convert a high-resolution PNG into a smaller web-friendly image, select your files, pick a quality, and compress. For PDFs, Compressly compresses embedded images inside PDFs, which often yields significant savings while preserving text and layout.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      Best practices: when you compress pdf files for email, aim for 60–80% quality for general use, and 40–60% for heavy compression where file size matters more than print-quality fidelity. If you need to compress pdf for archiving, keep a slightly higher quality. When compressing images, test a few quality settings to find the sweet spot where visual differences are minimal but file size drops substantially.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      Compressly is free to use and requires no account. The tool is perfect for users who want to compress pdf files quickly, compress image files before uploading to websites, or reduce storage costs. Because the work is done locally, it also works offline and in constrained environments.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      Common tasks our users complete: compress pdf before emailing, compress jpg for web galleries, compress image assets for faster page load times, and batch-compress multiple files at once. If you're wondering how to compress a pdf on desktop or in-browser, Compressly provides a consistent experience across devices without complicated installs.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      Get started now: drag and drop a PDF or image onto the tool, choose a quality setting, and click Compress. Preview the before/after file sizes and download your optimized file. Compressly helps you compress pdf and images quickly so you can share, upload, and store files more efficiently.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      We care about transparency and user control. Compression settings are visible and reversible — you decide the balance between size and quality. For most users, compressing a pdf or a jpg yields 50–80% smaller files with almost invisible quality loss. Try different settings to find what works best for your needs.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px; margin-bottom:8px;">
+      Ready to reduce file size and speed up sharing? Use Compressly to compress pdf, compress jpg, and optimize images — free, fast, and private. If you have questions about how to compress pdf files or which quality setting to choose, check our FAQ above or reach out via the About page.
+    </p>
+  </div>
+</section>
+
+<!-- ── SEO FAQ Section (visible) + JSON-LD for FAQPage ── -->
+<!-- Site pages links (visible on homepage) -->
+<section class="section-sm">
+  <div class="container" style="max-width:880px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+    <a href="/about" class="btn-secondary">About</a>
+    <a href="/privacy" class="btn-secondary">Privacy Policy</a>
+    <a href="/terms" class="btn-secondary">Terms & Conditions</a>
+    <a href="/contact" class="btn-secondary">Contact</a>
+  </div>
+</section>
+
+<section id="seo-faq" class="section-sm" style="border-top:1px solid var(--hairline);">
+  <div class="container" style="max-width:880px;">
+    <h2 class="heading-lg" style="margin-bottom:20px; text-align:left;">Frequently Asked Questions — Compress PDF & Images</h2>
+    <div class="body-md" style="display:flex; flex-direction:column; gap:12px; color:var(--body);">
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Is Compressly free to use?</summary>
+        <div style="margin-top:8px;">Yes — Compressly is completely free to use. There is no signup required, no watermarks, and no hidden fees.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Are my images uploaded to a server?</summary>
+        <div style="margin-top:8px;">No. Compression runs locally in your browser using the Canvas API and other browser APIs. Your files are not uploaded to our servers.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">What quality setting should I use?</summary>
+        <div style="margin-top:8px;">For general web use, 60–80% quality usually offers the best balance between file size and visible quality. For photos, try 70–80%; for aggressive size reduction, try 40–60%.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Can I compress multiple images at once?</summary>
+        <div style="margin-top:8px;">Yes — select or drag multiple files into the tool and use the "Compress All" action to batch-process images.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Does PNG compression work the same way?</summary>
+        <div style="margin-top:8px;">PNG files are handled differently; Compressly optimizes PNGs and allows converting PNG to JPG when appropriate for better compression.</div>
+      </details>
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How to compress a PDF?</summary>
+        <div style="margin-top:8px;">Use Compressly by dragging your PDF into the tool, selecting a compression quality, and clicking Compress. The tool re-encodes embedded images to reduce overall file size while preserving text and layout.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How to compress PDF files?</summary>
+        <div style="margin-top:8px;">Batch-upload one or more PDFs, pick a quality level, and compress. You can preview before downloading and repeat with a lower quality for smaller sizes.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How to compress a file?</summary>
+        <div style="margin-top:8px;">If the file is an image or PDF, use Compressly to optimize it in-browser. For other file types, consider zipping or using specific optimizers for that format.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How to compress a PDF file?</summary>
+        <div style="margin-top:8px;">Open Compressly, upload the PDF, adjust the image quality slider, and compress. The result downloads immediately—no uploads to our servers.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How to compress a PDF for free?</summary>
+        <div style="margin-top:8px;">Compressly is free: compress PDFs and images entirely in your browser without creating an account. Choose lower quality to achieve smaller sizes.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How to compress PDF file size?</summary>
+        <div style="margin-top:8px;">Reduce embedded image quality, remove unnecessary images, or downsample high-resolution images. Compressly focuses on image recompression inside PDFs to reduce file size effectively.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How to compress an image?</summary>
+        <div style="margin-top:8px;">Upload JPG, PNG, or WEBP, choose a quality percentage, and compress. For photos, 60–80% often provides good balance between size and quality.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How to compress a PDF on Mac?</summary>
+        <div style="margin-top:8px;">On macOS, you can use Preview > Export to create a smaller file, or use Compressly in your browser for more control over image quality and batch processing.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Compress PDF to 100KB / 200KB / 500KB / 1MB</summary>
+        <div style="margin-top:8px;">Target sizes depend on input content. To reach small targets like 100KB, reduce image quality and remove pages/images. Try multiple passes with lower quality settings; extremely small targets may sacrifice visible quality.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">iLovePDF compress PDF — comparison</summary>
+        <div style="margin-top:8px;">iLovePDF is a popular online service that also compresses PDFs. Unlike some services, Compressly processes files locally in your browser for improved privacy—choose the tool that matches your privacy needs.</div>
+      </details>
+
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Free compress PDF / Compress PDF to 1MB free</summary>
+        <div style="margin-top:8px;">Compressly offers free, in-browser compression that can often reach targets like 1MB depending on the original file. Experiment with quality settings to balance size and readability.</div>
+      </details>
     </div>
   </div>
 </section>
+
+<!-- JSON-LD FAQ for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Compressly free to use?",
+        "acceptedAnswer": {"@type": "Answer", "text": "<p>Yes — Compressly is completely free to use. There is no signup required, no watermarks, and no hidden fees.</p>"}
+      },
+      {
+        "@type": "Question",
+        "name": "Are my images uploaded to a server?",
+        "acceptedAnswer": {"@type": "Answer", "text": "<p>No. Compression runs locally in your browser using the Canvas API and other browser APIs. Your files are not uploaded to our servers.</p>"}
+      },
+      {
+        "@type": "Question",
+        "name": "What quality setting should I use?",
+        "acceptedAnswer": {"@type": "Answer", "text": "<p>For general web use, 60–80% quality usually offers the best balance between file size and visible quality. For photos, try 70–80%; for aggressive size reduction, try 40–60%.</p>"}
+      },
+      {
+        "@type": "Question",
+        "name": "Can I compress multiple images at once?",
+        "acceptedAnswer": {"@type": "Answer", "text": "<p>Yes — select or drag multiple files into the tool and use the \"Compress All\" action to batch-process images.</p>"}
+      },
+      {
+        "@type": "Question",
+        "name": "Does PNG compression work the same way?",
+        "acceptedAnswer": {"@type": "Answer", "text": "<p>PNG files are handled differently; Compressly optimizes PNGs and allows converting PNG to JPG when appropriate for better compression.</p>"}
+      },
+    {
+      "@type": "Question",
+      "name": "How to compress a PDF?",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Upload your PDF to Compressly, choose a compression quality, and click Compress. The tool recompresses embedded images to reduce file size while preserving text and layout.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "How to compress PDF files?",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Batch-upload PDFs, select a quality level, and compress. Preview results and download optimized files directly from your browser.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "How to compress a file?",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>For images and PDFs, use Compressly. For other file types consider zipping or format-specific tools.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "How to compress a PDF file?",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Open Compressly, upload the PDF, adjust the quality slider, and compress. Files are processed locally—no uploads to third-party servers.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "How to compress a PDF for free?",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Compressly is free and runs entirely in your browser. Choose a lower quality to achieve smaller file sizes without installing software.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "How to compress PDF file size?",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Reduce image quality, remove large images, or downsample high-resolution images inside the PDF. Compressly targets embedded images for effective size reduction.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "How to compress an image?",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Upload JPG, PNG, or WEBP files, choose a quality percentage, and compress. For photos, 60–80% typically yields good results.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "How to compress a PDF on Mac?",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Use Preview > Export with a quartz filter or use Compressly in your browser for more control and batch compression.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "Compress PDF to 100KB",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>To reach 100KB you may need aggressive image downsampling and quality reduction; results depend on original content.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "Compress PDF to 200KB",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Try lowering image quality and removing unnecessary images or pages. Smaller targets often require trade-offs in visual fidelity.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "iLovePDF compress PDF",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>iLovePDF is an alternative online compressor. Compressly differs by processing files locally in your browser for enhanced privacy.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "Compress PDF to 500KB",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Lower image quality moderately and remove extra assets; test different settings to meet a 500KB target while preserving readability.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "Free compress PDF",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Compressly provides free compression that runs in the browser with no sign-up required.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "Compress PDF to 1MB",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Use moderate compression settings or remove non-essential images to reach around 1MB; results vary by document content.</p>"}
+    },
+    {
+      "@type": "Question",
+      "name": "Compress PDF to 1MB free",
+      "acceptedAnswer": {"@type": "Answer", "text": "<p>Compressly can often meet a 1MB target for many documents; experiment with quality levels and repeat as necessary.</p>"}
+    }
+  ]
+}
+</script>
 
 <!-- ── AD BOTTOM ── -->
 <div class="container" style="margin-bottom:48px;">

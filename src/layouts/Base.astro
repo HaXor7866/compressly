@@ -4,8 +4,10 @@ export interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  keywords?: string;
 }
 const { title, description, canonical, ogImage = '/og-image.png' } = Astro.props;
+const keywords = Astro.props.keywords || '';
 const siteUrl = 'https://compressly.vercel.app';
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url.pathname;
 ---
@@ -18,6 +20,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
   <!-- Primary SEO -->
   <title>{title}</title>
   <meta name="description" content={description} />
+  {keywords ? <meta name="keywords" content={keywords} /> : null}
   <link rel="canonical" href={fullCanonical} />
   <meta name="robots" content="index, follow" />
 
@@ -28,6 +31,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
   <meta property="og:description" content={description} />
   <meta property="og:image" content={`${siteUrl}${ogImage}`} />
   <meta property="og:site_name" content="Compressly" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -79,7 +83,17 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
         applyTheme(nextTheme);
       });
     });
+
+    function googleTranslateElementInit() {
+      if (typeof google === 'undefined' || !google.translate) return;
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
   </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
   </style>
@@ -92,7 +106,12 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
       <div class="nav-links">
         <a href="/" class="nav-link">Image Compress</a>
         <a href="/pdf-compress" class="nav-link">PDF Compress</a>
+        <a href="/contact" class="nav-link">Contact</a>
+        <a href="/terms" class="nav-link">Terms</a>
         <a href="/about" class="nav-link">About</a>
+      </div>
+      <div class="translate-block" aria-label="Translate page">
+        <div id="google_translate_element"></div>
       </div>
       <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     </div>
@@ -109,6 +128,8 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
         <a href="/pdf-compress">PDF Compress</a>
         <a href="/about">About</a>
         <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/contact">Contact</a>
       </div>
       <span class="footer-copy">© 2024 Compressly. Free forever.</span>
     </div>

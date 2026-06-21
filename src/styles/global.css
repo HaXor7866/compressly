@@ -200,6 +200,39 @@ nav {
   transition: color 0.15s, background 0.15s;
 }
 .nav-link:hover { color: var(--ink); background: rgba(255,255,255,0.08); }
+.translate-block {
+  display: flex;
+  align-items: center;
+  min-width: 170px;
+  margin-right: 10px;
+}
+#google_translate_element {
+  width: 100%;
+}
+.goog-te-combo {
+  width: 100% !important;
+  min-width: 140px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline) !important;
+  background: var(--canvas-elevated) !important;
+  color: var(--ink) !important;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.goog-te-combo:focus {
+  outline: none !important;
+  border-color: var(--link) !important;
+}
+.goog-te-gadget-icon {
+  display: none !important;
+}
+.goog-logo-link {
+  display: none !important;
+}
+.goog-te-gadget {
+  font-size: 0 !important;
+}
 .theme-toggle {
   all: unset;
   display: inline-flex;
@@ -218,6 +251,7 @@ nav {
 .theme-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 [data-theme="dark"] .theme-toggle { background: #1f2937; }
 [data-theme="dark"] .theme-toggle:hover { background: #111827; }
+[data-theme="dark"] .translate-block select { background: #111827; border-color: #374151; color: #e2e8f0; }
 
 /* ── Hero gradient ── */
 .hero-gradient {

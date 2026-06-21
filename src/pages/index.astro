@@ -1,0 +1,362 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Free Image Compressor Online – JPG, PNG, WEBP | Compressly"
+  description="Compress JPG, PNG, and WEBP images online for free. Adjust quality with a slider, see before/after file size, and download instantly. No upload limits."
+  canonical="/"
+>
+
+<!-- ── HERO ── -->
+<section class="hero-section" style="padding: 80px 0 64px;">
+  <div class="hero-gradient"></div>
+  <div class="container" style="position:relative; z-index:1; text-align:center;">
+    <p class="mono-eyebrow" style="margin-bottom:16px;">Free · No signup · Runs in browser</p>
+    <h1 class="display-xl" style="margin-bottom:16px; max-width:680px; margin-left:auto; margin-right:auto;">
+      Compress Images Instantly
+    </h1>
+    <p class="body-lg" style="color:var(--body); max-width:480px; margin:0 auto 32px;">
+      Shrink JPG, PNG, and WEBP files without killing quality. Drag, drop, done.
+    </p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="#compress-tool" class="btn-primary" style="font-size:15px; padding:10px 22px;">
+        Start Compressing ↓
+      </a>
+      <a href="/pdf-compress" class="btn-secondary" style="font-size:15px; padding:10px 22px;">
+        PDF Compress →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── AD BANNER TOP ── -->
+<div class="container" style="margin-bottom:32px;">
+  <!-- Google AdSense: replace data-ad-client and data-ad-slot -->
+  <div class="ad-slot ad-slot-banner" id="ad-top">
+    <span>Advertisement · AdSense banner will show here</span>
+  </div>
+  <!-- Uncomment after AdSense approval:
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<!-- ── MAIN TOOL ── -->
+<section id="compress-tool" class="section-sm">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 300px; gap:32px; align-items:start;" class="tool-grid">
+
+      <!-- LEFT: Tool -->
+      <div>
+        <!-- Upload Zone -->
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple />
+          <div id="uploadPrompt">
+            <div style="font-size:48px; margin-bottom:12px;">🖼️</div>
+            <p class="heading-md" style="margin-bottom:8px;">Drop images here</p>
+            <p class="body-md" style="color:var(--mute); margin-bottom:16px;">JPG, PNG, WEBP supported · Multiple files OK</p>
+            <button type="button" class="btn-primary" onclick="document.getElementById('fileInput').click()">
+              Choose Files
+            </button>
+          </div>
+        </div>
+
+        <!-- Quality Slider -->
+        <div class="feature-card" style="margin-top:16px;" id="settingsPanel" hidden>
+          <div class="slider-wrap">
+            <label>
+              <span>Compression Quality</span>
+              <span id="qualityValue" style="font-family:var(--font-mono); color:var(--link);">75%</span>
+            </label>
+            <input type="range" id="qualitySlider" min="10" max="100" value="75" />
+            <div style="display:flex; justify-content:space-between;" class="body-sm" style="color:var(--mute);">
+              <span style="color:var(--mute); font-size:12px;">Smaller file</span>
+              <span style="color:var(--mute); font-size:12px;">Better quality</span>
+            </div>
+          </div>
+          <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+            <button class="btn-primary" id="compressBtn">⚡ Compress All</button>
+            <button class="btn-secondary" id="clearBtn">✕ Clear</button>
+            <span class="body-sm" style="color:var(--mute); margin-left:auto;" id="fileCount"></span>
+          </div>
+        </div>
+
+        <!-- Results List -->
+        <div id="resultsList" style="margin-top:16px; display:flex; flex-direction:column; gap:8px;"></div>
+
+        <!-- Download All button -->
+        <div id="downloadAllWrap" hidden style="margin-top:16px;">
+          <button class="btn-primary" id="downloadAllBtn" style="width:100%; justify-content:center; padding:12px;">
+            ⬇️ Download All Compressed
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sidebar Ad + Info -->
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <!-- Sidebar Ad -->
+        <div class="ad-slot ad-slot-sidebar" id="ad-sidebar">
+          <span>Advertisement<br/>Sidebar ad</span>
+        </div>
+        <!-- Info card -->
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">How it works</p>
+          <div style="display:flex; flex-direction:column; gap:10px;" class="body-md">
+            <div style="display:flex; gap:8px; align-items:flex-start;">
+              <span>1️⃣</span><span>Upload JPG, PNG, or WEBP images</span>
+            </div>
+            <div style="display:flex; gap:8px; align-items:flex-start;">
+              <span>2️⃣</span><span>Adjust quality slider (75% is sweet spot)</span>
+            </div>
+            <div style="display:flex; gap:8px; align-items:flex-start;">
+              <span>3️⃣</span><span>Click Compress & download</span>
+            </div>
+          </div>
+        </div>
+        <!-- Features -->
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">Features</p>
+          <ul style="display:flex; flex-direction:column; gap:8px; list-style:none;" class="body-md">
+            <li>✅ Runs 100% in browser</li>
+            <li>✅ No file size limit</li>
+            <li>✅ Files never uploaded</li>
+            <li>✅ JPG · PNG · WEBP</li>
+            <li>✅ Batch compress</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ (SEO) ── -->
+<section class="section-sm" style="border-top: 1px solid var(--hairline);">
+  <div class="container" style="max-width:720px;">
+    <h2 class="heading-lg" style="margin-bottom:40px; text-align:center;">Frequently Asked Questions</h2>
+    <div style="display:flex; flex-direction:column; gap:0;" id="faq">
+      <div class="faq-item">
+        <button class="faq-q">Is Compressly free to use?</button>
+        <div class="faq-a"><p>Yes, completely free. No signup, no limits, no watermark.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Are my images uploaded to a server?</button>
+        <div class="faq-a"><p>No. Compression happens entirely in your browser using the Canvas API. Your files never leave your device.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What quality setting should I use?</button>
+        <div class="faq-a"><p>75% is the sweet spot for web images — typically 60-80% size reduction with barely visible quality loss. For social media, 60% works great.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I compress multiple images at once?</button>
+        <div class="faq-a"><p>Yes! Select or drag multiple files at once and click "Compress All".</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does PNG compression work the same way?</button>
+        <div class="faq-a"><p>PNG files are converted to optimized PNG. For maximum compression, consider converting PNG to JPG using the output format option.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AD BOTTOM ── -->
+<div class="container" style="margin-bottom:48px;">
+  <div class="ad-slot ad-slot-banner">
+    <span>Advertisement · AdSense banner</span>
+  </div>
+</div>
+
+</Base>
+
+<style>
+.tool-grid { grid-template-columns: 1fr 300px; }
+@media (max-width: 900px) { .tool-grid { grid-template-columns: 1fr !important; } }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--hairline); }
+.faq-q {
+  width: 100%; background: none; border: none; cursor: pointer;
+  text-align: left; padding: 18px 0;
+  font-size: 15px; font-weight: 500; color: var(--ink);
+  font-family: var(--font-sans);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.faq-q::after { content: '+'; font-size: 20px; color: var(--mute); transition: transform 0.2s; }
+.faq-q.open::after { content: '−'; }
+.faq-a { display: none; padding: 0 0 16px; color: var(--body); font-size: 14px; line-height: 22px; }
+.faq-a.open { display: block; }
+</style>
+
+<script>
+// ── State ──
+let files = [];
+let results = [];
+
+// ── DOM refs ──
+const uploadZone  = document.getElementById('uploadZone');
+const fileInput   = document.getElementById('fileInput');
+const settingsPanel = document.getElementById('settingsPanel');
+const qualitySlider = document.getElementById('qualitySlider');
+const qualityValue  = document.getElementById('qualityValue');
+const compressBtn   = document.getElementById('compressBtn');
+const clearBtn      = document.getElementById('clearBtn');
+const fileCount     = document.getElementById('fileCount');
+const resultsList   = document.getElementById('resultsList');
+const downloadAllWrap = document.getElementById('downloadAllWrap');
+const downloadAllBtn  = document.getElementById('downloadAllBtn');
+
+// ── Quality slider ──
+qualitySlider.addEventListener('input', () => {
+  qualityValue.textContent = qualitySlider.value + '%';
+});
+
+// ── Drag & drop ──
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+uploadZone.addEventListener('drop', e => {
+  e.preventDefault(); uploadZone.classList.remove('drag-over');
+  handleFiles([...e.dataTransfer.files]);
+});
+uploadZone.addEventListener('click', e => {
+  if (e.target === uploadZone || e.target.id === 'uploadZone') fileInput.click();
+});
+fileInput.addEventListener('change', () => handleFiles([...fileInput.files]));
+
+function handleFiles(newFiles) {
+  const valid = newFiles.filter(f => ['image/jpeg','image/png','image/webp'].includes(f.type));
+  if (!valid.length) return alert('Please select JPG, PNG, or WEBP files.');
+  files = [...files, ...valid];
+  fileCount.textContent = `${files.length} file${files.length>1?'s':''} selected`;
+  settingsPanel.removeAttribute('hidden');
+  document.getElementById('uploadPrompt').querySelector('p.heading-md').textContent = `${files.length} image${files.length>1?'s':''} ready`;
+}
+
+// ── Compress ──
+compressBtn.addEventListener('click', async () => {
+  if (!files.length) return;
+  results = [];
+  resultsList.innerHTML = '';
+  downloadAllWrap.setAttribute('hidden', '');
+  compressBtn.disabled = true;
+  compressBtn.innerHTML = '<span class="spinner"></span> Compressing…';
+
+  const quality = parseInt(qualitySlider.value) / 100;
+
+  for (const file of files) {
+    const row = createResultRow(file.name, formatBytes(file.size));
+    resultsList.appendChild(row.el);
+    try {
+      const blob = await compressImage(file, quality);
+      const saving = Math.round((1 - blob.size / file.size) * 100);
+      row.update(formatBytes(blob.size), saving, blob, file.name);
+      results.push({ blob, name: file.name, saving });
+    } catch(e) {
+      row.error();
+    }
+  }
+
+  compressBtn.disabled = false;
+  compressBtn.innerHTML = '⚡ Compress All';
+  if (results.length > 1) downloadAllWrap.removeAttribute('hidden');
+});
+
+function compressImage(file, quality) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      const mimeType = file.type === 'image/png' ? 'image/png' : file.type === 'image/webp' ? 'image/webp' : 'image/jpeg';
+      canvas.toBlob(blob => {
+        URL.revokeObjectURL(url);
+        if (blob) resolve(blob); else reject(new Error('Compression failed'));
+      }, mimeType, quality);
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
+function createResultRow(name, origSize) {
+  const el = document.createElement('div');
+  el.className = 'result-row';
+  el.innerHTML = `
+    <div style="flex:1; min-width:0;">
+      <p class="label-sm" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escHtml(name)}</p>
+      <div style="display:flex; gap:6px; margin-top:4px; flex-wrap:wrap; align-items:center;">
+        <span class="size-badge">${origSize}</span>
+        <span style="color:var(--mute); font-size:12px;">→</span>
+        <span class="size-badge compressedSize">…</span>
+        <span class="savingBadge" style="display:none;"></span>
+      </div>
+    </div>
+    <div class="actionArea"><span class="spinner"></span></div>
+  `;
+  return {
+    el,
+    update(newSize, saving, blob, origName) {
+      el.querySelector('.compressedSize').textContent = newSize;
+      const badge = el.querySelector('.savingBadge');
+      badge.style.display = '';
+      badge.className = 'size-badge saved';
+      badge.textContent = saving > 0 ? `-${saving}%` : 'Optimized';
+      const action = el.querySelector('.actionArea');
+      action.innerHTML = `<button class="btn-ghost-sm" onclick="downloadBlob(this)" 
+        data-url="${URL.createObjectURL(blob)}" 
+        data-name="compressed_${origName}">⬇ Save</button>`;
+    },
+    error() {
+      el.querySelector('.actionArea').innerHTML = '<span style="color:var(--error); font-size:12px;">Failed</span>';
+    }
+  };
+}
+
+window.downloadBlob = function(btn) {
+  const a = document.createElement('a');
+  a.href = btn.dataset.url;
+  a.download = btn.dataset.name;
+  a.click();
+};
+
+// ── Download All ──
+downloadAllBtn.addEventListener('click', async () => {
+  for (const r of results) {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(r.blob);
+    a.download = 'compressed_' + r.name;
+    a.click();
+    await new Promise(r => setTimeout(r, 200));
+  }
+});
+
+// ── Clear ──
+clearBtn.addEventListener('click', () => {
+  files = []; results = [];
+  fileInput.value = '';
+  resultsList.innerHTML = '';
+  settingsPanel.setAttribute('hidden', '');
+  downloadAllWrap.setAttribute('hidden', '');
+  document.getElementById('uploadPrompt').querySelector('p.heading-md').textContent = 'Drop images here';
+  fileCount.textContent = '';
+});
+
+// ── Utils ──
+function formatBytes(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes/1024).toFixed(1) + ' KB';
+  return (bytes/(1024*1024)).toFixed(2) + ' MB';
+}
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const ans = btn.nextElementSibling;
+    btn.classList.toggle('open');
+    ans.classList.toggle('open');
+  });
+});
+</script>

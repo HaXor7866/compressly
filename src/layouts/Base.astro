@@ -1,0 +1,123 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+}
+const { title, description, canonical, ogImage = '/og-image.png' } = Astro.props;
+const siteUrl = 'https://compressly.vercel.app';
+const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={fullCanonical} />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={fullCanonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+  <meta property="og:site_name" content="Compressly" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Compressly",
+    "url": siteUrl,
+    "description": "Free online tool to compress images (JPG, PNG, WEBP) and PDF files without losing quality.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  })} />
+  <script>
+    const themeStorageKey = 'compressly-theme';
+    const themeToggleId = 'themeToggle';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem(themeStorageKey);
+    const defaultTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const button = document.getElementById(themeToggleId);
+      if (button) {
+        button.textContent = theme === 'dark' ? '☀️' : '🌙';
+        button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+    }
+
+    applyTheme(defaultTheme);
+    window.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById(themeToggleId);
+      if (!button) return;
+      button.addEventListener('click', () => {
+        const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(themeStorageKey, nextTheme);
+        applyTheme(nextTheme);
+      });
+    });
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+  </style>
+</head>
+<body>
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">⚡ Compressly</a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Image Compress</a>
+        <a href="/pdf-compress" class="nav-link">PDF Compress</a>
+        <a href="/about" class="nav-link">About</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <slot />
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">⚡ Compressly</span>
+      <div class="footer-links">
+        <a href="/">Image Compress</a>
+        <a href="/pdf-compress">PDF Compress</a>
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy</a>
+      </div>
+      <span class="footer-copy">© 2024 Compressly. Free forever.</span>
+    </div>
+  </footer>
+</body>
+</html>
+
+<link rel="stylesheet" href="/src/styles/global.css" />
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

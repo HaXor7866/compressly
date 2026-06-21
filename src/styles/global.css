@@ -263,11 +263,137 @@ nav {
 .hero-section { position: relative; overflow: hidden; }
 
 /* ── Responsive ── */
-@media (max-width: 640px) {
-  .nav-links .nav-link { display: none; }
+@media (max-width: 1024px) {
+  .container { padding: 0 20px; }
+  .section { padding: 80px 0; }
+  .section-sm { padding: 48px 0; }
+  .translate-block { min-width: 150px; margin-right: 8px; }
+  .nav-inner { padding: 0 20px; }
+}
+
+@media (max-width: 768px) {
+  /* Typography */
+  .display-xl { font-size: clamp(24px, 5vw, 40px); }
+  .heading-lg { font-size: 24px; line-height: 32px; }
+  .heading-md { font-size: 18px; line-height: 24px; }
+  .body-lg { font-size: 15px; line-height: 22px; }
+  
+  /* Layout */
+  .container { padding: 0 16px; }
   .section { padding: 64px 0; }
+  .section-sm { padding: 40px 0; }
+  
+  /* Navigation */
+  .nav-inner { padding: 0 16px; height: 50px; }
+  .nav-links { gap: 2px; }
+  .nav-link { padding: 4px 10px; font-size: 13px; }
+  .nav-logo { font-size: 14px; }
+  .translate-block { min-width: 130px; margin-right: 6px; }
+  .theme-toggle { width: 32px; height: 32px; font-size: 14px; }
+  
+  /* Cards and components */
   .feature-card { padding: 16px; }
-  .result-row { flex-wrap: wrap; }
+  .btn-primary, .btn-secondary { padding: 6px 12px; font-size: 13px; }
+  .upload-zone { padding: 32px 16px; }
+  .result-row { flex-wrap: wrap; gap: 8px; padding: 8px 12px; }
+  
+  /* Footer */
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-links { gap: 16px; flex-wrap: wrap; }
+  .footer-copy { width: 100%; }
+}
+
+@media (max-width: 640px) {
+  /* Typography */
+  .display-xl { font-size: clamp(20px, 4vw, 32px); }
+  .heading-lg { font-size: 20px; line-height: 28px; margin-bottom: 12px; }
+  .heading-md { font-size: 16px; line-height: 22px; }
+  .body-lg { font-size: 14px; line-height: 20px; }
+  .body-md { font-size: 13px; line-height: 18px; }
+  
+  /* Layout */
+  .container { padding: 0 12px; }
+  .section { padding: 48px 0; }
+  .section-sm { padding: 32px 0; }
+  
+  /* Navigation */
+  .nav-inner { padding: 0 12px; height: 48px; gap: 8px; }
+  .nav-links { display: none !important; }
+  .nav-link { display: none; }
+  .nav-logo { font-size: 13px; }
+  .translate-block { min-width: 100px; }
+  .goog-te-combo { min-width: 90px; padding: 4px 8px; font-size: 11px; }
+  .theme-toggle { width: 28px; height: 28px; font-size: 12px; }
+  
+  /* Cards and components */
+  .feature-card { padding: 12px; }
+  .btn-primary, .btn-secondary { padding: 6px 10px; font-size: 12px; }
+  .btn-ghost-sm { padding: 4px 8px; font-size: 11px; }
+  .upload-zone { padding: 24px 12px; }
+  .upload-zone > div > div { font-size: 40px; margin-bottom: 8px; }
+  .result-row { flex-direction: column; align-items: flex-start; padding: 8px; }
+  .size-badge { font-size: 11px; padding: 3px 6px; }
+  
+  /* Inputs and sliders */
+  input[type="range"]::-webkit-slider-thumb { width: 16px; height: 16px; }
+  
+  /* Tabs and details */
+  .tabs { gap: 2px; padding: 2px; }
+  .tab-btn { padding: 6px 12px; font-size: 12px; }
+  details { margin-bottom: 8px; }
+  summary { font-size: 13px; padding: 8px 0; }
+  
+  /* Footer */
+  .footer-inner { padding: 0; flex-direction: column; }
+  .footer-logo { font-size: 13px; }
+  .footer-links { gap: 12px; flex-direction: column; }
+  .footer-links a { font-size: 12px; }
+  .footer-copy { font-size: 11px; }
+  
+  /* Ads */
+  .ad-slot-sidebar { width: 100%; height: 120px; margin-bottom: 12px; }
+  
+  /* Spinner */
+  .spinner { width: 14px; height: 14px; border-width: 1.5px; }
+}
+
+@media (max-width: 480px) {
+  /* Ultra-responsive typography */
+  .display-xl { font-size: clamp(18px, 3vw, 24px); }
+  .heading-lg { font-size: 18px; line-height: 24px; }
+  .heading-md { font-size: 15px; line-height: 20px; }
+  .body-lg { font-size: 13px; }
+  .mono-eyebrow { font-size: 10px; }
+  
+  /* Layout */
+  .container { padding: 0 8px; }
+  .section { padding: 36px 0; }
+  .section-sm { padding: 24px 0; }
+  
+  /* Navigation */
+  .nav-inner { padding: 0 8px; height: 44px; }
+  .translate-block { min-width: 80px; margin-right: 4px; }
+  .goog-te-combo { min-width: 70px; }
+  
+  /* Cards */
+  .feature-card { padding: 10px; }
+  .upload-zone { padding: 16px 8px; }
+  .upload-zone > div > div { font-size: 32px; }
+  
+  /* Buttons */
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  
+  /* Result row */
+  .result-row { gap: 6px; }
+  .result-row > div:first-child { flex: 1 1 100%; }
+  .actionArea { width: 100%; }
+  
+  /* Details/FAQ */
+  summary { font-size: 12px; }
+  
+  /* Footer */
+  .footer-inner { gap: 12px; }
+  .footer-links { gap: 10px; }
 }
 
 /* ── Spinner ── */

@@ -385,7 +385,17 @@ import Base from '../layouts/Base.astro';
 
 <style>
 .tool-grid { grid-template-columns: 1fr 300px; }
-@media (max-width: 900px) { .tool-grid { grid-template-columns: 1fr !important; } }
+@media (max-width: 900px) { 
+  .tool-grid { grid-template-columns: 1fr !important; gap: 24px; }
+  .ad-slot-sidebar { width: 100% !important; }
+}
+@media (max-width: 768px) {
+  .tool-grid { gap: 20px; }
+}
+@media (max-width: 640px) {
+  .tool-grid { gap: 16px; }
+  .ad-slot-sidebar { height: 100px !important; }
+}
 
 /* FAQ */
 .faq-item { border-bottom: 1px solid var(--hairline); }

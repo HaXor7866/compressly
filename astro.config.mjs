@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://compresspdffonline.com',
+  site: 'https://compresspdfonline.com',
   compressHTML: true,
 });

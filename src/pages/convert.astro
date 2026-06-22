@@ -1,0 +1,404 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Convert PDF, Word, Image, and Text Online | Compressly"
+  description="Convert PDF to Word, Word to PDF, Image to PDF, PDF to Image, Text to PDF, and PDF to Text in your browser. No upload required."
+  canonical="/convert"
+  ogImage="/og-image.png"
+  keywords="pdf to word, word to pdf, image to pdf, pdf to image, text to pdf, pdf to text, file converter"
+>
+
+<section class="hero-section" style="padding:80px 0 64px;">
+  <div class="hero-gradient"></div>
+  <div class="container" style="position:relative; z-index:1; text-align:center;">
+    <p class="mono-eyebrow" style="margin-bottom:16px;">Free · Browser-based · No signup</p>
+    <h1 class="display-xl" style="max-width:720px; margin:0 auto 16px;">
+      Convert PDF, Word, Image, and Text Files
+    </h1>
+    <p class="body-lg" style="color:var(--body); max-width:580px; margin:0 auto 32px;">
+      Convert files instantly in your browser. Export documents without uploading them to a server.
+    </p>
+    <a href="#converter-tool" class="btn-primary" style="font-size:15px; padding:10px 22px;">
+      Start Converting ↓
+    </a>
+  </div>
+</section>
+
+<section id="converter-tool" class="section-sm">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 320px; gap:32px;" class="tool-grid">
+      <div>
+        <div class="feature-card" style="padding:24px;">
+          <p class="mono-eyebrow" style="margin-bottom:16px;">Choose a conversion</p>
+          <label class="label-sm" for="convertType">Conversion type</label>
+          <select id="convertType" class="select-control" style="width:100%; margin-top:8px;">
+            <option value="pdf-to-word">PDF → Word</option>
+            <option value="pdf-to-text">PDF → Text</option>
+            <option value="pdf-to-image">PDF → Image</option>
+            <option value="word-to-pdf">Word → PDF</option>
+            <option value="image-to-pdf">Image → PDF</option>
+            <option value="text-to-pdf">Text → PDF</option>
+          </select>
+
+          <div class="upload-zone" id="convertUploadZone" style="margin-top:24px;">
+            <input type="file" id="convertFileInput" accept="application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png,image/webp" />
+            <div>
+              <div style="font-size:48px; margin-bottom:12px;">🔄</div>
+              <p class="heading-md" style="margin-bottom:8px;">Drop a file here</p>
+              <p class="body-md" style="color:var(--mute); margin-bottom:16px;" id="convertHint">
+                Support PDFs, DOCX, JPG, PNG, WEBP
+              </p>
+              <button type="button" class="btn-primary" onclick="document.getElementById('convertFileInput').click()">
+                Choose File
+              </button>
+            </div>
+          </div>
+
+          <div id="textInputGroup" hidden style="margin-top:24px;">
+            <label class="label-sm" for="textInput">Enter text to convert</label>
+            <textarea id="textInput" class="text-area" rows="10" placeholder="Type or paste text here..."></textarea>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; align-items:center;">
+            <button class="btn-primary" id="convertBtn">Convert Now</button>
+            <button class="btn-secondary" id="convertClearBtn">Clear</button>
+            <span id="convertStatus" class="body-sm" style="color:var(--mute);"></span>
+          </div>
+        </div>
+
+        <div id="resultPanel" class="feature-card" hidden style="margin-top:24px; padding:24px; border-color:#dbeafe; background:#eff6ff;">
+          <p class="heading-md" style="margin-bottom:12px;">Conversion Result</p>
+          <div id="resultSummary" class="body-md" style="margin-bottom:16px; color:var(--body);"></div>
+          <div id="resultLinks" style="display:flex; flex-direction:column; gap:10px;"></div>
+          <div id="imageResultList" style="display:flex; flex-direction:column; gap:16px; margin-top:16px;"></div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">How it works</p>
+          <div style="display:flex; flex-direction:column; gap:10px;" class="body-md">
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>1️⃣</span><span>Select the conversion type.</span></div>
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>2️⃣</span><span>Upload your file or paste text.</span></div>
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>3️⃣</span><span>Download the converted document instantly.</span></div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">Privacy first</p>
+          <p class="body-md" style="color:var(--body);">
+            All conversions run in your browser. No files are uploaded to a server, and nothing is shared.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">Best for</p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;" class="body-md">
+            <li>📄 Converting PDF reports to editable Word</li>
+            <li>📝 Saving notes as PDF</li>
+            <li>🖼️ Turning images into printable PDF files</li>
+            <li>📤 Extracting text from PDF pages</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="PDF converter SEO information">
+  <div class="container" style="max-width:860px;">
+    <h2 class="heading-lg" style="margin-bottom:20px; text-align:left;">Browser-Based File Conversion for PDF, Word, Image, and Text</h2>
+    <p class="body-md" style="color:var(--body); margin-top:0;">
+      Compressly's converter lets you transform files without leaving the browser. Convert PDFs into Word documents, turn scanned image files into PDFs, and export plain text as printable PDF documents. Everything happens locally for maximum privacy.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      The tool supports DOCX, PDF, JPG, PNG, and WEBP. Whether you need to extract readable text from a PDF, make a photo into a PDF, or generate a PDF from typed notes, Compressly gives you a one-stop converter in the same interface.
+    </p>
+    <p class="body-md" style="color:var(--body); margin-top:14px;">
+      For best results, upload a well-formed PDF or a clean document. PDF-to-image conversion creates high-resolution PNG files, while Word-to-PDF and Text-to-PDF produce browser-ready PDF downloads instantly.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm" style="border-top:1px solid var(--hairline);">
+  <div class="container" style="max-width:860px;">
+    <h2 class="heading-lg" style="margin-bottom:20px; text-align:left;">Converter FAQ</h2>
+    <div class="body-md" style="display:flex; flex-direction:column; gap:14px; color:var(--body);">
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Is file conversion really local?</summary>
+        <div style="margin-top:8px;">Yes. This page uses browser libraries to convert files locally. No upload is performed.</div>
+      </details>
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">What formats are supported?</summary>
+        <div style="margin-top:8px;">PDF, DOCX, JPG, PNG, WEBP, and plain text. PDF-to-word uses plain text output, while Word-to-PDF supports DOCX files.</div>
+      </details>
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">How do I convert multiple PDF pages to images?</summary>
+        <div style="margin-top:8px;">Upload the PDF and choose PDF → Image. Each page is rendered and shown for download.</div>
+      </details>
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Can I convert a Word document to a PDF?</summary>
+        <div style="margin-top:8px;">Yes. Upload a DOCX file, then select Word → PDF.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.19/mammoth.browser.min.js"></script>
+
+<script>
+const convertType = document.getElementById('convertType');
+const convertFileInput = document.getElementById('convertFileInput');
+const convertUploadZone = document.getElementById('convertUploadZone');
+const convertHint = document.getElementById('convertHint');
+const textInputGroup = document.getElementById('textInputGroup');
+const textInput = document.getElementById('textInput');
+const convertBtn = document.getElementById('convertBtn');
+const convertClearBtn = document.getElementById('convertClearBtn');
+const convertStatus = document.getElementById('convertStatus');
+const resultPanel = document.getElementById('resultPanel');
+const resultSummary = document.getElementById('resultSummary');
+const resultLinks = document.getElementById('resultLinks');
+const imageResultList = document.getElementById('imageResultList');
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const acceptMap = {
+  'pdf-to-word': 'application/pdf',
+  'pdf-to-text': 'application/pdf',
+  'pdf-to-image': 'application/pdf',
+  'word-to-pdf': '.docx',
+  'image-to-pdf': 'image/jpeg,image/png,image/webp',
+  'text-to-pdf': ''
+};
+
+function updateMode() {
+  const mode = convertType.value;
+  if (mode === 'text-to-pdf') {
+    textInputGroup.removeAttribute('hidden');
+    convertUploadZone.hidden = true;
+    convertHint.textContent = 'Type text into the editor below.';
+  } else {
+    textInputGroup.setAttribute('hidden', '');
+    convertUploadZone.hidden = false;
+    convertFileInput.value = '';
+    convertFileInput.accept = acceptMap[mode];
+    convertHint.textContent = mode === 'word-to-pdf' ? 'Upload a DOCX file.' : mode === 'image-to-pdf' ? 'Upload JPG, PNG, or WEBP.' : 'Upload a PDF file.';
+  }
+  resetResult();
+}
+
+function setStatus(message, isError = false) {
+  convertStatus.textContent = message;
+  convertStatus.style.color = isError ? '#dc2626' : 'var(--mute)';
+}
+
+function resetResult() {
+  resultPanel.setAttribute('hidden', '');
+  resultSummary.textContent = '';
+  resultLinks.innerHTML = '';
+  imageResultList.innerHTML = '';
+}
+
+convertType.addEventListener('change', updateMode);
+convertUploadZone.addEventListener('dragover', e => { e.preventDefault(); convertUploadZone.classList.add('drag-over'); });
+convertUploadZone.addEventListener('dragleave', () => convertUploadZone.classList.remove('drag-over'));
+convertUploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  convertUploadZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (!file) return;
+  if (convertType.value !== 'text-to-pdf') {
+    convertFileInput.files = e.dataTransfer.files;
+  }
+});
+convertFileInput.addEventListener('change', () => resetResult());
+convertClearBtn.addEventListener('click', () => {
+  convertFileInput.value = '';
+  textInput.value = '';
+  setStatus('');
+  resetResult();
+});
+
+async function convertFile() {
+  const mode = convertType.value;
+  resetResult();
+  setStatus('Processing…');
+  convertBtn.disabled = true;
+
+  try {
+    if (mode === 'text-to-pdf') {
+      const text = textInput.value.trim();
+      if (!text) throw new Error('Please enter text to convert.');
+      const blob = await convertTextToPdf(text);
+      showDownload(blob, 'text-to-pdf.pdf', 'Text converted to PDF.');
+      return;
+    }
+
+    const file = convertFileInput.files?.[0];
+    if (!file) throw new Error('Please upload a file.');
+
+    if (mode === 'pdf-to-word') {
+      const blob = await convertPdfToWord(file);
+      showDownload(blob, file.name.replace(/\.pdf$/i, '') + '.doc', 'PDF converted to Word.');
+    } else if (mode === 'pdf-to-text') {
+      const text = await extractPdfText(file);
+      const blob = new Blob([text], { type: 'text/plain' });
+      showDownload(blob, file.name.replace(/\.pdf$/i, '') + '.txt', 'PDF converted to text.');
+    } else if (mode === 'pdf-to-image') {
+      const images = await convertPdfToImages(file);
+      showImages(images, file.name.replace(/\.pdf$/i, ''));
+    } else if (mode === 'word-to-pdf') {
+      const blob = await convertWordToPdf(file);
+      showDownload(blob, file.name.replace(/\.docx$/i, '') + '.pdf', 'Word converted to PDF.');
+    } else if (mode === 'image-to-pdf') {
+      const blob = await convertImageToPdf(file);
+      showDownload(blob, file.name.replace(/\.[^/.]+$/, '') + '.pdf', 'Image converted to PDF.');
+    }
+  } catch (error) {
+    setStatus(error.message || 'Conversion failed.', true);
+  } finally {
+    convertBtn.disabled = false;
+  }
+}
+
+async function extractPdfText(file) {
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  let extracted = '';
+
+  for (let pageIndex = 1; pageIndex <= pdf.numPages; pageIndex += 1) {
+    const page = await pdf.getPage(pageIndex);
+    const content = await page.getTextContent();
+    const pageText = content.items.map(item => item.str).join(' ');
+    extracted += pageText + '\n\n';
+  }
+
+  return extracted.trim();
+}
+
+async function convertPdfToWord(file) {
+  const text = await extractPdfText(file);
+  return new Blob([text], { type: 'application/msword' });
+}
+
+async function convertWordToPdf(file) {
+  if (typeof mammoth === 'undefined') {
+    throw new Error('Word converter is not loaded.');
+  }
+  const arrayBuffer = await file.arrayBuffer();
+  const { value } = await mammoth.extractRawText({ arrayBuffer });
+  return convertTextToPdf(value || '');
+}
+
+async function convertImageToPdf(file) {
+  const image = await loadImage(file);
+  const canvas = document.createElement('canvas');
+  canvas.width = image.naturalWidth;
+  canvas.height = image.naturalHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(image, 0, 0);
+  const dataUrl = canvas.toDataURL('image/jpeg', 1.0);
+  const { jsPDF } = window.jspdf || {};
+  if (!jsPDF) throw new Error('PDF engine is not available.');
+  const pdf = new jsPDF({ unit: 'pt', format: [canvas.width, canvas.height] });
+  pdf.addImage(dataUrl, 'JPEG', 0, 0, canvas.width, canvas.height);
+  return pdf.output('blob');
+}
+
+async function convertTextToPdf(text) {
+  const { jsPDF } = window.jspdf || {};
+  if (!jsPDF) throw new Error('PDF engine is not available.');
+  const pdf = new jsPDF({ unit: 'pt', format: 'letter' });
+  const lines = pdf.splitTextToSize(text, 520);
+  let y = 40;
+
+  lines.forEach((line, index) => {
+    if (y > 760) {
+      pdf.addPage();
+      y = 40;
+    }
+    pdf.text(line, 40, y);
+    y += 14;
+  });
+
+  return pdf.output('blob');
+}
+
+async function convertPdfToImages(file) {
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const images = [];
+
+  for (let pageIndex = 1; pageIndex <= pdf.numPages; pageIndex += 1) {
+    const page = await pdf.getPage(pageIndex);
+    const viewport = page.getViewport({ scale: 1.5 });
+    const canvas = document.createElement('canvas');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    const context = canvas.getContext('2d');
+    await page.render({ canvasContext: context, viewport }).promise;
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+    images.push({ blob, url: URL.createObjectURL(blob), page: pageIndex });
+  }
+
+  return images;
+}
+
+function showDownload(blob, name, summary) {
+  const url = URL.createObjectURL(blob);
+  resultPanel.removeAttribute('hidden');
+  resultSummary.textContent = summary;
+  resultLinks.innerHTML = `<a class="btn-primary" href="${url}" download="${name}" style="display:inline-block; width:auto;">⬇ Download ${name}</a>`;
+  setStatus('Conversion complete.');
+}
+
+function showImages(images, baseName) {
+  resultPanel.removeAttribute('hidden');
+  resultSummary.textContent = `${images.length} image${images.length === 1 ? '' : 's'} ready for download.`;
+  resultLinks.innerHTML = '';
+  imageResultList.innerHTML = images.map(item => `
+    <div class="image-result-card">
+      <img src="${item.url}" alt="Page ${item.page} preview" />
+      <a class="btn-secondary" href="${item.url}" download="${baseName}-page-${item.page}.png">⬇ Download page ${item.page}</a>
+    </div>
+  `).join('');
+  setStatus('Conversion complete.');
+}
+
+function loadImage(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve(img);
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error('Unable to load image.'));
+    };
+    img.src = url;
+  });
+}
+
+convertBtn.addEventListener('click', convertFile);
+updateMode();
+</script>
+
+<style>
+.tool-grid { grid-template-columns: 1fr 320px; }
+@media (max-width: 900px) { .tool-grid { grid-template-columns: 1fr !important; gap: 24px; } }
+@media (max-width: 640px) { .tool-grid { gap: 18px; } }
+.select-control { font-size: 16px; padding: 12px 14px; border: 1px solid var(--hairline); border-radius: 12px; width: 100%; }
+.text-area { width: 100%; border: 1px solid var(--hairline); border-radius: 12px; padding: 14px; font-size: 15px; color: var(--ink); background: var(--surface); }
+.image-result-card { display:flex; flex-direction:column; gap:10px; }
+.image-result-card img { width:100%; border:1px solid var(--hairline); border-radius:12px; }
+.btn-secondary { width:auto; }
+</style>
+
+</Base>

@@ -495,7 +495,7 @@ function compressImage(file, quality) {
       canvas.height = img.naturalHeight;
       const ctx = canvas.getContext('2d');
       ctx.drawImage(img, 0, 0);
-      const mimeType = file.type === 'image/png' ? 'image/png' : file.type === 'image/webp' ? 'image/webp' : 'image/jpeg';
+      const mimeType = file.type === 'image/png' ? 'image/webp' : file.type === 'image/webp' ? 'image/webp' : 'image/jpeg';
       canvas.toBlob(blob => {
         URL.revokeObjectURL(url);
         if (blob) resolve(blob); else reject(new Error('Compression failed'));
@@ -530,9 +530,11 @@ function createResultRow(name, origSize) {
       badge.className = 'size-badge saved';
       badge.textContent = saving > 0 ? `-${saving}%` : 'Optimized';
       const action = el.querySelector('.actionArea');
+      const extension = blob.type.split('/')[1] || 'bin';
+      const safeName = origName.replace(/\.[^/.]+$/, '');
       action.innerHTML = `<button class="btn-ghost-sm" onclick="downloadBlob(this)" 
         data-url="${URL.createObjectURL(blob)}" 
-        data-name="compressed_${origName}">⬇ Save</button>`;
+        data-name="compressed_${safeName}.${extension}">⬇ Save</button>`;
     },
     error() {
       el.querySelector('.actionArea').innerHTML = '<span style="color:var(--error); font-size:12px;">Failed</span>';

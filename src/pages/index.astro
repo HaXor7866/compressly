@@ -14,19 +14,60 @@ import Base from '../layouts/Base.astro';
   <div class="hero-gradient"></div>
   <div class="container" style="position:relative; z-index:1; text-align:center;">
     <p class="mono-eyebrow" style="margin-bottom:16px;">Free · No signup · Runs in browser</p>
-    <h1 class="display-xl" style="margin-bottom:16px; max-width:680px; margin-left:auto; margin-right:auto;">
-      Compress Images Instantly
+    <h1 class="display-xl" style="margin-bottom:16px; max-width:720px; margin-left:auto; margin-right:auto;">
+      Compress PDF Online & Images in Seconds
     </h1>
-    <p class="body-lg" style="color:var(--body); max-width:480px; margin:0 auto 32px;">
-      Shrink JPG, PNG, and WEBP files without killing quality. Drag, drop, done.
+    <p class="body-lg" style="color:var(--body); max-width:520px; margin:0 auto 32px;">
+      Reduce PDF and image sizes fast with a private, browser-based toolkit — no sign-up, no uploads, no hassle.
     </p>
     <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
       <a href="#compress-tool" class="btn-primary" style="font-size:15px; padding:10px 22px;">
         Start Compressing ↓
       </a>
-      <a href="/pdf-compress" class="btn-secondary" style="font-size:15px; padding:10px 22px;">
-        PDF Compress →
+      <a href="/convert" class="btn-secondary" style="font-size:15px; padding:10px 22px;">
+        All File Tools →
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ALL TOOLS SECTION ── -->
+<section class="section-sm" style="padding-top:0;">
+  <div class="container">
+    <div class="feature-card" style="padding:24px;">
+      <div style="display:flex; justify-content:space-between; align-items:end; gap:16px; flex-wrap:wrap; margin-bottom:18px;">
+        <div>
+          <p class="mono-eyebrow" style="margin-bottom:8px;">All-in-one tools</p>
+          <h2 class="heading-lg" style="margin:0;">Convert files like iLovePDF — free and private</h2>
+        </div>
+        <a href="/convert" class="btn-secondary">Open converter →</a>
+      </div>
+      <div class="tool-grid-3">
+        <a href="/pdf-compress" class="mini-tool-card">
+          <strong>PDF Compress</strong>
+          <span>Reduce PDF file size in-browser</span>
+        </a>
+        <a href="/convert" class="mini-tool-card">
+          <strong>PDF → Word</strong>
+          <span>Turn PDFs into editable documents</span>
+        </a>
+        <a href="/convert" class="mini-tool-card">
+          <strong>Word → PDF</strong>
+          <span>Convert DOCX files to PDF</span>
+        </a>
+        <a href="/convert" class="mini-tool-card">
+          <strong>Image → PDF</strong>
+          <span>Make a printable PDF from images</span>
+        </a>
+        <a href="/convert" class="mini-tool-card">
+          <strong>PDF → Image</strong>
+          <span>Export each page as a PNG image</span>
+        </a>
+        <a href="/convert" class="mini-tool-card">
+          <strong>Text → PDF</strong>
+          <span>Save notes and content as PDF</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -385,6 +426,13 @@ import Base from '../layouts/Base.astro';
 
 <style>
 .tool-grid { grid-template-columns: 1fr 300px; }
+.tool-grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:12px; }
+.mini-tool-card {
+  display:flex; flex-direction:column; gap:6px; padding:14px 16px; border:1px solid var(--hairline); border-radius:14px; background:var(--surface); color:var(--ink); text-decoration:none; transition:transform .16s ease, border-color .16s ease;
+}
+.mini-tool-card:hover { transform:translateY(-2px); border-color:var(--link); }
+.mini-tool-card strong { font-size:15px; }
+.mini-tool-card span { font-size:13px; color:var(--mute); line-height:1.45; }
 @media (max-width: 900px) { 
   .tool-grid { grid-template-columns: 1fr !important; gap: 24px; }
   .ad-slot-sidebar { width: 100% !important; }

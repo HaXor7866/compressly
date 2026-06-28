@@ -5,8 +5,15 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
   keywords?: string;
+  schema?: object;
 }
-const { title, description, canonical, ogImage = '/og-image.png' } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  ogImage = "/og-image.png",
+  schema
+} = Astro.props;
 const keywords = Astro.props.keywords || '';
 const siteUrl = 'https://compresspdfonline.com';
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url.pathname;
@@ -56,16 +63,24 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
   </script>
 
   <!-- Schema.org structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Compressly",
-    "url": siteUrl,
-    "description": "Free online tool to compress images (JPG, PNG, WEBP) and PDF files without losing quality.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-  })} />
+ <script
+  type="application/ld+json"
+  set:html={JSON.stringify(
+    schema ?? {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Compressly",
+      "url": siteUrl,
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  )}
+/>
   <script>
     const themeStorageKey = 'compressly-theme';
     const themeToggleId = 'themeToggle';

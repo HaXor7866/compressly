@@ -1,6 +1,8 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: 'https://compresspdfonline.com',
+  site: "https://compresspdfonline.com",
   compressHTML: true,
+  integrations: [sitemap()]
 });

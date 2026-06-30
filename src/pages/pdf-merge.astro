@@ -1,0 +1,279 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Merge PDF Files Online for Free | Compressly"
+  description="Combine multiple PDF files into one document directly in your browser. Upload your PDFs, arrange them, and download the merged result instantly."
+  canonical="/pdf-merge"
+>
+
+<section class="hero-section" style="padding:80px 0 64px;">
+  <div class="hero-gradient"></div>
+  <div class="container" style="position:relative; z-index:1; text-align:center;">
+    <p class="mono-eyebrow" style="margin-bottom:16px;">Free · Browser-based · No signup</p>
+    <h1 class="display-xl" style="max-width:760px; margin:0 auto 16px;">
+      Merge Multiple PDFs into One File
+    </h1>
+    <p class="body-lg" style="color:var(--body); max-width:620px; margin:0 auto 32px;">
+      Upload several PDFs, reorder them if needed, and combine them into a single downloadable PDF.
+    </p>
+    <a href="#merge-tool" class="btn-primary" style="font-size:15px; padding:10px 22px;">
+      Start Merging ↓
+    </a>
+  </div>
+</section>
+
+<section id="merge-tool" class="section-sm">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 320px; gap:32px;" class="tool-grid">
+      <div>
+        <div class="upload-zone" id="mergeUploadZone">
+          <input type="file" id="mergeFileInput" accept="application/pdf" multiple />
+          <div>
+            <div style="font-size:48px; margin-bottom:12px;">🧩</div>
+            <p class="heading-md" style="margin-bottom:8px;">Drop PDFs here</p>
+            <p class="body-md" style="color:var(--mute); margin-bottom:16px;">
+              Select two or more PDFs to merge
+            </p>
+            <button type="button" class="btn-primary" onclick="document.getElementById('mergeFileInput').click()">
+              Choose PDFs
+            </button>
+          </div>
+        </div>
+
+        <div id="mergeSettings" class="feature-card" hidden style="margin-top:16px; padding:24px;">
+          <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:16px;">
+            <div>
+              <p class="label-sm">Selected PDFs</p>
+              <p class="body-sm" style="color:var(--mute);" id="mergeFileMeta">Choose files to merge.</p>
+            </div>
+            <span class="size-badge" id="mergeCountBadge">0 files</span>
+          </div>
+
+          <div id="mergeList" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; align-items:center;">
+            <button class="btn-primary" id="mergeBtn">Merge PDFs</button>
+            <button class="btn-secondary" id="mergeClearBtn">Clear</button>
+            <span id="mergeStatus" class="body-sm" style="color:var(--mute);"></span>
+          </div>
+        </div>
+
+        <div id="mergeResult" class="feature-card" hidden style="margin-top:16px; padding:24px; border-color:#dbeafe; background:#eff6ff;">
+          <p class="heading-md" style="margin-bottom:12px;">Merge Result</p>
+          <div id="mergeSummary" class="body-md" style="margin-bottom:16px; color:var(--body);"></div>
+          <a id="mergeDownloadLink" class="btn-primary" href="#" download="merged.pdf" style="display:inline-block;">⬇ Download Merged PDF</a>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">How it works</p>
+          <div style="display:flex; flex-direction:column; gap:10px;" class="body-md">
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>1️⃣</span><span>Select multiple PDF files.</span></div>
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>2️⃣</span><span>Arrange them in the desired order.</span></div>
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>3️⃣</span><span>Download one combined PDF.</span></div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">Privacy first</p>
+          <p class="body-md" style="color:var(--body);">
+            Everything runs locally in your browser. Your PDFs are never uploaded to a server.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" style="border-top:1px solid var(--hairline);">
+  <div class="container" style="max-width:860px;">
+    <h2 class="heading-lg" style="margin-bottom:20px; text-align:left;">PDF merge FAQ</h2>
+    <div class="body-md" style="display:flex; flex-direction:column; gap:14px; color:var(--body);">
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Will my files stay private?</summary>
+        <div style="margin-top:8px;">Yes. Merging is processed locally in your browser, so your files never leave your device.</div>
+      </details>
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Can I merge more than two PDFs?</summary>
+        <div style="margin-top:8px;">Yes. You can select as many PDFs as you need and merge them into one file.</div>
+      </details>
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Can I change the order?</summary>
+        <div style="margin-top:8px;">Yes. The files are shown in the order you select, and you can reorder them before merging.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+.tool-grid { grid-template-columns: 1fr 320px; }
+.merge-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border:1px solid var(--hairline);
+  border-radius:12px;
+  background:white;
+}
+.merge-item button {
+  border:none;
+  background:none;
+  cursor:pointer;
+  color:var(--link);
+}
+@media (max-width: 900px) {
+  .tool-grid { grid-template-columns: 1fr !important; gap: 24px; }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.0/dist/pdf-lib.min.js"></script>
+
+<script>
+const mergeFileInput = document.getElementById('mergeFileInput');
+const mergeUploadZone = document.getElementById('mergeUploadZone');
+const mergeSettings = document.getElementById('mergeSettings');
+const mergeFileMeta = document.getElementById('mergeFileMeta');
+const mergeCountBadge = document.getElementById('mergeCountBadge');
+const mergeList = document.getElementById('mergeList');
+const mergeBtn = document.getElementById('mergeBtn');
+const mergeClearBtn = document.getElementById('mergeClearBtn');
+const mergeStatus = document.getElementById('mergeStatus');
+const mergeResult = document.getElementById('mergeResult');
+const mergeSummary = document.getElementById('mergeSummary');
+const mergeDownloadLink = document.getElementById('mergeDownloadLink');
+
+let selectedFiles = [];
+
+function setStatus(message, isError = false) {
+  mergeStatus.textContent = message;
+  mergeStatus.style.color = isError ? '#dc2626' : 'var(--mute)';
+}
+
+function renderList() {
+  mergeList.innerHTML = '';
+  if (!selectedFiles.length) {
+    mergeSettings.setAttribute('hidden', '');
+    return;
+  }
+
+  mergeSettings.removeAttribute('hidden');
+  mergeFileMeta.textContent = `${selectedFiles.length} file${selectedFiles.length === 1 ? '' : 's'} selected`;
+  mergeCountBadge.textContent = `${selectedFiles.length} file${selectedFiles.length === 1 ? '' : 's'}`;
+
+  selectedFiles.forEach((file, index) => {
+    const item = document.createElement('div');
+    item.className = 'merge-item';
+    item.innerHTML = `
+      <span>${index + 1}. ${file.name}</span>
+      <div style="display:flex; gap:8px;">
+        <button type="button" data-dir="up" data-index="${index}">↑</button>
+        <button type="button" data-dir="down" data-index="${index}">↓</button>
+        <button type="button" data-action="remove" data-index="${index}">✕</button>
+      </div>
+    `;
+    mergeList.appendChild(item);
+  });
+}
+
+function handleFiles(files) {
+  const pdfFiles = Array.from(files).filter(file => file.type === 'application/pdf');
+  if (!pdfFiles.length) {
+    setStatus('Please choose valid PDF files.', true);
+    return;
+  }
+  selectedFiles = [...selectedFiles, ...pdfFiles];
+  renderList();
+  setStatus(`${selectedFiles.length} PDF${selectedFiles.length === 1 ? '' : 's'} ready to merge.`);
+  mergeResult.setAttribute('hidden', '');
+}
+
+mergeUploadZone.addEventListener('dragover', e => { e.preventDefault(); mergeUploadZone.classList.add('drag-over'); });
+mergeUploadZone.addEventListener('dragleave', () => mergeUploadZone.classList.remove('drag-over'));
+mergeUploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  mergeUploadZone.classList.remove('drag-over');
+  handleFiles(e.dataTransfer.files);
+});
+mergeUploadZone.addEventListener('click', e => { if (!e.target.closest('button')) mergeFileInput.click(); });
+mergeFileInput.addEventListener('change', () => {
+  handleFiles(mergeFileInput.files || []);
+  mergeFileInput.value = '';
+});
+
+mergeList.addEventListener('click', e => {
+  const button = e.target.closest('button');
+  if (!button) return;
+  const index = Number(button.dataset.index);
+  const action = button.dataset.action;
+  if (action === 'remove') {
+    selectedFiles.splice(index, 1);
+    renderList();
+    setStatus('File removed.');
+  } else if (button.dataset.dir === 'up' && index > 0) {
+    [selectedFiles[index - 1], selectedFiles[index]] = [selectedFiles[index], selectedFiles[index - 1]];
+    renderList();
+  } else if (button.dataset.dir === 'down' && index < selectedFiles.length - 1) {
+    [selectedFiles[index], selectedFiles[index + 1]] = [selectedFiles[index + 1], selectedFiles[index]];
+    renderList();
+  }
+});
+
+mergeClearBtn.addEventListener('click', () => {
+  selectedFiles = [];
+  mergeList.innerHTML = '';
+  mergeSettings.setAttribute('hidden', '');
+  mergeFileMeta.textContent = 'Choose files to merge.';
+  mergeCountBadge.textContent = '0 files';
+  mergeResult.setAttribute('hidden', '');
+  mergeDownloadLink.removeAttribute('href');
+  mergeDownloadLink.textContent = '⬇ Download Merged PDF';
+  mergeDownloadLink.setAttribute('download', 'merged.pdf');
+  setStatus('');
+});
+
+mergeBtn.addEventListener('click', async () => {
+  if (selectedFiles.length < 2) {
+    setStatus('Please choose at least two PDF files to merge.', true);
+    return;
+  }
+
+  mergeBtn.disabled = true;
+  mergeBtn.textContent = 'Merging…';
+  setStatus('Combining PDFs…');
+
+  try {
+    const PDFLib = window.PDFLib || window.pdfLib;
+    if (!PDFLib) {
+      throw new Error('PDF library failed to load.');
+    }
+
+    const mergedPdf = await PDFLib.PDFDocument.create();
+    for (const file of selectedFiles) {
+      const bytes = await file.arrayBuffer();
+      const sourcePdf = await PDFLib.PDFDocument.load(bytes);
+      const copiedPages = await mergedPdf.copyPages(sourcePdf, sourcePdf.getPageIndices());
+      copiedPages.forEach(page => mergedPdf.addPage(page));
+    }
+
+    const mergedBytes = await mergedPdf.save();
+    const blob = new Blob([mergedBytes], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+    mergeDownloadLink.href = url;
+    mergeDownloadLink.download = 'merged.pdf';
+    mergeDownloadLink.textContent = '⬇ Download Merged PDF';
+    mergeSummary.textContent = `Merged ${selectedFiles.length} PDF file${selectedFiles.length === 1 ? '' : 's'} into one download.`;
+    mergeResult.removeAttribute('hidden');
+    setStatus('Merge complete.');
+  } catch (error) {
+    console.error(error);
+    setStatus('The merge could not be completed. Please try again.', true);
+  } finally {
+    mergeBtn.disabled = false;
+    mergeBtn.textContent = 'Merge PDFs';
+  }
+});
+</script>

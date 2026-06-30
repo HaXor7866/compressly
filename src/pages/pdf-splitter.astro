@@ -1,0 +1,298 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+title="Split PDF Online Free - Separate PDF Pages Securely"
+description="Split PDF online for free. Separate PDF pages into multiple files securely without registration."
+canonical="/pdf-split"
+keywords="split pdf online, split pdf free, split pdf pages, extract pages from pdf, pdf splitter, split large pdf, split pdf online free"
+/>
+
+<section class="hero-section" style="padding:80px 0 64px;">
+  <div class="hero-gradient"></div>
+  <div class="container" style="position:relative; z-index:1; text-align:center;">
+    <p class="mono-eyebrow" style="margin-bottom:16px;">Free · Browser-based · No signup</p>
+    <h1 class="display-xl" style="max-width:760px; margin:0 auto 16px;">
+      Split PDF Pages into Individual Files
+    </h1>
+    <p class="body-lg" style="color:var(--body); max-width:620px; margin:0 auto 32px;">
+      Upload a PDF, select the pages you want, and download each page as a standalone PDF in seconds.
+    </p>
+    <a href="#splitter-tool" class="btn-primary" style="font-size:15px; padding:10px 22px;">
+      Start Splitting ↓
+    </a>
+  </div>
+</section>
+
+<section id="splitter-tool" class="section-sm">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 320px; gap:32px;" class="tool-grid">
+      <div>
+        <div class="upload-zone" id="splitUploadZone">
+          <input type="file" id="splitFileInput" accept="application/pdf" />
+          <div>
+            <div style="font-size:48px; margin-bottom:12px;">📑</div>
+            <p class="heading-md" style="margin-bottom:8px;">Drop a PDF here</p>
+            <p class="body-md" style="color:var(--mute); margin-bottom:16px;">
+              PDF files only · Each selected page becomes its own download
+            </p>
+            <button type="button" class="btn-primary" onclick="document.getElementById('splitFileInput').click()">
+              Choose PDF
+            </button>
+          </div>
+        </div>
+
+        <div id="splitSettings" class="feature-card" hidden style="margin-top:16px; padding:24px;">
+          <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:16px;">
+            <div>
+              <p class="label-sm" id="splitFileName">No file selected</p>
+              <p class="body-sm" style="color:var(--mute);" id="splitFileMeta">Upload a PDF to begin.</p>
+            </div>
+            <span class="size-badge" id="splitPageCount">0 pages</span>
+          </div>
+
+          <p class="body-sm" style="margin-bottom:10px; color:var(--mute);">Choose which pages to split out.</p>
+          <div id="pageSelector" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(84px, 1fr)); gap:10px;"></div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; align-items:center;">
+            <button class="btn-primary" id="splitBtn">Split PDF</button>
+            <button class="btn-secondary" id="splitClearBtn">Clear</button>
+            <span id="splitStatus" class="body-sm" style="color:var(--mute);"></span>
+          </div>
+        </div>
+
+        <div id="splitResult" class="feature-card" hidden style="margin-top:16px; padding:24px; border-color:#dbeafe; background:#eff6ff;">
+          <p class="heading-md" style="margin-bottom:12px;">Split Result</p>
+          <div id="splitSummary" class="body-md" style="margin-bottom:16px; color:var(--body);"></div>
+          <div id="splitLinks" style="display:flex; flex-direction:column; gap:10px;"></div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">How it works</p>
+          <div style="display:flex; flex-direction:column; gap:10px;" class="body-md">
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>1️⃣</span><span>Upload your PDF.</span></div>
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>2️⃣</span><span>Select the pages you want to extract.</span></div>
+            <div style="display:flex; gap:8px; align-items:flex-start;"><span>3️⃣</span><span>Download each page as a separate PDF instantly.</span></div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">Privacy first</p>
+          <p class="body-md" style="color:var(--body);">
+            Everything runs locally in your browser. Your PDF is never uploaded to a server.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" style="border-top:1px solid var(--hairline);">
+  <div class="container" style="max-width:860px;">
+    <h2 class="heading-lg" style="margin-bottom:20px; text-align:left;">PDF splitter FAQ</h2>
+    <div class="body-md" style="display:flex; flex-direction:column; gap:14px; color:var(--body);">
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Will my PDF stay private?</summary>
+        <div style="margin-top:8px;">Yes. The split happens fully in your browser, so your file never leaves your device.</div>
+      </details>
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">Can I split only selected pages?</summary>
+        <div style="margin-top:8px;">Yes. You can choose exactly which pages to extract and download as separate PDFs.</div>
+      </details>
+      <details>
+        <summary style="font-weight:600; cursor:pointer;">What file format will I receive?</summary>
+        <div style="margin-top:8px;">Each selected page is exported as a standalone PDF file with the same page content.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+.tool-grid { grid-template-columns: 1fr 320px; }
+.page-pill {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 10px;
+  border:1px solid var(--hairline);
+  border-radius:12px;
+  background: white;
+  font-size:13px;
+  color:var(--ink);
+}
+.page-pill input { accent-color: var(--link); }
+@media (max-width: 900px) {
+  .tool-grid { grid-template-columns: 1fr !important; gap: 24px; }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.0/dist/pdf-lib.min.js"></script>
+
+<script>
+const splitFileInput = document.getElementById('splitFileInput');
+const splitUploadZone = document.getElementById('splitUploadZone');
+const splitSettings = document.getElementById('splitSettings');
+const splitFileName = document.getElementById('splitFileName');
+const splitFileMeta = document.getElementById('splitFileMeta');
+const splitPageCount = document.getElementById('splitPageCount');
+const pageSelector = document.getElementById('pageSelector');
+const splitBtn = document.getElementById('splitBtn');
+const splitClearBtn = document.getElementById('splitClearBtn');
+const splitStatus = document.getElementById('splitStatus');
+const splitResult = document.getElementById('splitResult');
+const splitSummary = document.getElementById('splitSummary');
+const splitLinks = document.getElementById('splitLinks');
+
+let currentPdf = null;
+let pageCount = 0;
+let currentPdfBytes = null;
+
+if (typeof pdfjsLib !== 'undefined') {
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+function setStatus(message, isError = false) {
+  splitStatus.textContent = message;
+  splitStatus.style.color = isError ? '#dc2626' : 'var(--mute)';
+}
+
+function resetResults() {
+  splitResult.setAttribute('hidden', '');
+  splitSummary.textContent = '';
+  splitLinks.innerHTML = '';
+}
+
+function renderPageSelector(count) {
+  pageSelector.innerHTML = '';
+  for (let i = 1; i <= count; i += 1) {
+    const label = document.createElement('label');
+    label.className = 'page-pill';
+    label.innerHTML = `<input type="checkbox" checked value="${i}" /> <span>Page ${i}</span>`;
+    pageSelector.appendChild(label);
+  }
+}
+
+async function loadPdf(file) {
+  if (!file || file.type !== 'application/pdf') {
+    setStatus('Please choose a valid PDF file.', true);
+    return;
+  }
+
+  setStatus('Loading PDF…');
+  resetResults();
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    currentPdfBytes = arrayBuffer;
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    currentPdf = pdf;
+    pageCount = pdf.numPages;
+
+    splitFileName.textContent = file.name;
+    splitFileMeta.textContent = `${file.size} bytes • ${pageCount} page${pageCount === 1 ? '' : 's'}`;
+    splitPageCount.textContent = `${pageCount} page${pageCount === 1 ? '' : 's'}`;
+    renderPageSelector(pageCount);
+    splitSettings.removeAttribute('hidden');
+    splitResult.setAttribute('hidden', '');
+    setStatus('PDF ready. Pick the pages you want to split.');
+  } catch (error) {
+    console.error(error);
+    setStatus('Could not read that PDF. Please choose another file.', true);
+  }
+}
+
+function createDownloadLink(blob, fileName) {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = fileName;
+  link.className = 'btn-secondary';
+  link.textContent = `⬇ Download ${fileName}`;
+  link.style.display = 'inline-block';
+  splitLinks.appendChild(link);
+}
+
+splitUploadZone.addEventListener('dragover', e => { e.preventDefault(); splitUploadZone.classList.add('drag-over'); });
+splitUploadZone.addEventListener('dragleave', () => splitUploadZone.classList.remove('drag-over'));
+splitUploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  splitUploadZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files?.[0];
+  if (file) loadPdf(file);
+});
+splitUploadZone.addEventListener('click', e => { if (!e.target.closest('button')) splitFileInput.click(); });
+splitFileInput.addEventListener('change', () => {
+  const file = splitFileInput.files?.[0];
+  if (file) loadPdf(file);
+});
+
+splitClearBtn.addEventListener('click', () => {
+  splitFileInput.value = '';
+  currentPdf = null;
+  currentPdfBytes = null;
+  pageCount = 0;
+  splitSettings.setAttribute('hidden', '');
+  splitFileName.textContent = 'No file selected';
+  splitFileMeta.textContent = 'Upload a PDF to begin.';
+  splitPageCount.textContent = '0 pages';
+  pageSelector.innerHTML = '';
+  resetResults();
+  setStatus('');
+});
+
+splitBtn.addEventListener('click', async () => {
+  if (!currentPdfBytes) {
+    setStatus('Please upload a PDF first.', true);
+    return;
+  }
+
+  const selectedPages = Array.from(pageSelector.querySelectorAll('input:checked')).map(input => Number(input.value));
+  if (!selectedPages.length) {
+    setStatus('Please select at least one page.', true);
+    return;
+  }
+
+  splitBtn.disabled = true;
+  splitBtn.textContent = 'Splitting…';
+  setStatus('Creating your split PDFs…');
+  resetResults();
+
+  try {
+    const PDFLib = window.PDFLib || window.pdfLib;
+    if (!PDFLib) {
+      throw new Error('PDF library failed to load.');
+    }
+
+    const sourcePdfDoc = await PDFLib.PDFDocument.load(currentPdfBytes);
+    const createdFiles = [];
+
+    for (const pageNumber of selectedPages) {
+      const newPdfDoc = await PDFLib.PDFDocument.create();
+      const [copiedPage] = await newPdfDoc.copyPages(sourcePdfDoc, [pageNumber - 1]);
+      newPdfDoc.addPage(copiedPage);
+      const pdfBytes = await newPdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      createdFiles.push(blob);
+    }
+
+    splitSummary.textContent = `Created ${createdFiles.length} PDF file${createdFiles.length === 1 ? '' : 's'} from your selection.`;
+    createdFiles.forEach((blob, index) => {
+      const fileName = `page-${selectedPages[index]}.pdf`;
+      createDownloadLink(blob, fileName);
+    });
+
+    splitResult.removeAttribute('hidden');
+    setStatus(`Finished splitting ${createdFiles.length} page${createdFiles.length === 1 ? '' : 's'}.`);
+  } catch (error) {
+    console.error(error);
+    setStatus('The split could not be completed. Please try another PDF.', true);
+  } finally {
+    splitBtn.disabled = false;
+    splitBtn.textContent = 'Split PDF';
+  }
+});
+</script>

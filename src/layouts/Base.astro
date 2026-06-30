@@ -131,6 +131,8 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
         <a href="/" class="nav-link">Image Compress</a>
         <a href="/convert" class="nav-link">Converter</a>
         <a href="/pdf-compress" class="nav-link">PDF Compress</a>
+        <a href="/pdf-splitter" class="nav-link">PDF Splitter</a>
+        <a href="/pdf-merge" class="nav-link">PDF Merge</a>
         <a href="/contact" class="nav-link">Contact</a>
         <a href="/terms" class="nav-link">Terms</a>
         <a href="/about" class="nav-link">About</a>
@@ -139,8 +141,31 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
         <div id="google_translate_element"></div>
       </div>
       <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </nav>
+
+  <!-- ── MOBILE SIDEBAR ── -->
+  <div id="mobileSidebar" class="mobile-sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">Tools</span>
+      <button id="sidebarCloseBtn" class="sidebar-close" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="/" class="sidebar-link">🖼️ Image Compress</a>
+      <a href="/convert" class="sidebar-link">🔄 Converter</a>
+      <a href="/pdf-compress" class="sidebar-link">⚡ PDF Compress</a>
+      <a href="/pdf-splitter" class="sidebar-link">📑 PDF Splitter</a>
+      <a href="/pdf-merge" class="sidebar-link">🧩 PDF Merge</a>
+      <hr class="sidebar-divider" />
+      <a href="/about" class="sidebar-link">About</a>
+      <a href="/privacy" class="sidebar-link">Privacy</a>
+      <a href="/terms" class="sidebar-link">Terms</a>
+      <a href="/contact" class="sidebar-link">Contact</a>
+    </nav>
+  </div>
+
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
 
   <slot />
 
@@ -152,6 +177,8 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
         <a href="/">Image Compress</a>
         <a href="/convert">Converter</a>
         <a href="/pdf-compress">PDF Compress</a>
+        <a href="/pdf-splitter">PDF Splitter</a>
+        <a href="/pdf-merge">PDF Merge</a>
         <a href="/about">About</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
@@ -160,6 +187,43 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl + Astro.url
       <span class="footer-copy">© 2026 • Compress PDF Online. Free forever.</span>
     </div>
   </footer>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+    function closeSidebar() {
+      mobileSidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = 'auto';
+    }
+
+    function openSidebar() {
+      mobileSidebar.classList.add('open');
+      sidebarOverlay.classList.add('open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    mobileMenuBtn.addEventListener('click', () => {
+      if (mobileSidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    sidebarCloseBtn.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', closeSidebar);
+    });
+  </script>
 </body>
 </html>
 

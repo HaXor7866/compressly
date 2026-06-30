@@ -5,10 +5,10 @@ import Base from '../layouts/Base.astro';
   title="Merge PDF Online Free - Combine PDF Files"
   description="Combine multiple PDF files into one document directly in your browser. Upload your PDFs, arrange them, and download the merged result instantly."
   canonical="/pdf-merge"
-  keywords="merge pdf online, merge pdf files, combine pdf online, join pdf files, merge pdf free, merge multiple pdfs, combine pdf free, merge pdf without adobe, online pdf merger"
+  keywords="merge pdf online, merge pdf files, combine pdf online, join pdf files, merge pdf free, merge multiple pdfs, combine pdf free, merge pdf without adobe, online pdf merger, merge pdf online free, combine pdf files online, join pdf documents, merge pdf secure, merge large pdf files, combine multiple pdf files"
   schema={{
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "SoftwareApplication",
     "name": "Compressly PDF Merge",
     "url": "https://compresspdfonline.com/pdf-merge",
     "applicationCategory": "UtilityApplication",
@@ -22,35 +22,49 @@ import Base from '../layouts/Base.astro';
       "Merge multiple PDF files into one document",
       "Reorder files before combining",
       "Works directly in the browser"
-    ],
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Can I merge more than two PDF files?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can combine as many PDF files as you need into one final document."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I change the order of the PDFs before merging?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can arrange the selected files before starting the merge process."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is the merge process private?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Files are merged locally in your browser, so they are never uploaded to a server."
-        }
-      }
     ]
   }}
 >
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I merge more than two PDF files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can combine as many PDF files as you need into one final document."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change the order of the PDFs before merging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can arrange the selected files before starting the merge process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the merge process private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Files are merged locally in your browser, so they are never uploaded to a server."
+      }
+    }
+  ]
+})}></script>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://compresspdfonline.com/"},
+    {"@type": "ListItem", "position": 2, "name": "PDF Merge", "item": "https://compresspdfonline.com/pdf-merge"}
+  ]
+})}></script>
 
 <section class="hero-section" style="padding:80px 0 64px;">
   <div class="hero-gradient"></div>
@@ -135,36 +149,45 @@ import Base from '../layouts/Base.astro';
 <section class="section-sm">
   <div class="container" style="max-width:980px;">
     <div class="feature-card" style="padding:28px;">
-      <h2 class="heading-lg" style="margin-bottom:20px;">Why people merge PDF files</h2>
+      <h2 class="heading-lg" style="margin-bottom:20px;">How to merge PDF files</h2>
       <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        Merging PDF files is one of the most common tasks in everyday document work. Whether you are assembling invoices, combining scanned pages, joining reports, or preparing a client packet, a PDF merger helps you turn multiple files into a single, clean document. Instead of sending several attachments, you can provide one organized file that is easier to review and download.
+        Merging PDF files is useful when you want to turn multiple documents into one complete file. Maybe you have a proposal split into several sections, invoices saved separately, or scanned pages that need to be assembled into one document. Instead of sending several attachments, you can upload them here, arrange them in the right order, and download a single combined PDF.
       </p>
       <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        This is especially useful for business owners, students, designers, teachers, and freelancers. A single PDF can bring together cover pages, signed forms, proposal sections, receipts, and notes into one flow that is easier to share. When everything is combined logically, the reader sees a complete document rather than a scattered set of files.
+        The process is straightforward. Choose your PDF files, review the list, move them into the order you want, and click merge. The tool combines them into one polished file that is easier to share, store, and review. It is especially handy for businesses, students, and anyone handling paperwork that arrives in multiple parts.
+      </p>
+
+      <h3 class="heading-md" style="margin:24px 0 12px;">Why people use a PDF merge tool</h3>
+      <p class="body-md" style="color:var(--body); margin-bottom:16px;">
+        A PDF merge tool helps you keep your documents tidy. Instead of sending five separate files, you can deliver one clean document that feels more professional and is easier for the recipient to open. This is useful for contracts, reports, portfolios, receipts, invoices, scanned forms, and client presentations.
       </p>
       <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        Our merge tool is designed to make this process simple. You can upload several PDFs, place them in the order you want, and create one final file without installing any software. This is ideal for people who want to keep things quick and avoid the complexity of desktop apps or expensive subscriptions. The process is lightweight, direct, and practical for both personal and professional use.
+        It also saves time. You do not need to install bulky software or learn complicated desktop applications. With our browser-based tool, you can combine documents quickly and continue your workflow without interruptions. That makes it ideal for people who need a fast solution without the extra setup.
+      </p>
+
+      <h3 class="heading-md" style="margin:24px 0 12px;">Features you can expect</h3>
+      <ul class="body-md" style="color:var(--body); margin:0 0 16px 20px; display:flex; flex-direction:column; gap:8px;">
+        <li>Merge multiple PDF files into one final document.</li>
+        <li>Reorder documents before combining them.</li>
+        <li>Keep the full page content and layout intact.</li>
+        <li>Use it for invoices, contracts, study notes, portfolios, and scanned paperwork.</li>
+        <li>Work entirely in the browser without creating an account.</li>
+      </ul>
+
+      <h3 class="heading-md" style="margin:24px 0 12px;">Security and privacy</h3>
+      <p class="body-md" style="color:var(--body); margin-bottom:16px;">
+        Privacy is important whenever you are combining business files or personal documents. Our merge tool processes everything locally in your browser, so your PDFs are not uploaded to a third-party server while they are being combined. That gives you more control over how your information is handled.
       </p>
       <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        There are many reasons someone might want to combine multiple PDFs. Perhaps you have a set of separate invoices that need to be sent together. Maybe you scanned a document in parts and want one complete file. Or perhaps you are preparing a portfolio, report, or legal packet made of several source documents. Whatever the case, a reliable merge tool gives you a cleaner workflow.
+        Whether you are merging sensitive contracts, client paperwork, or receipts for your records, the process stays private and straightforward.
       </p>
+
+      <h3 class="heading-md" style="margin:24px 0 12px;">Related tools</h3>
       <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        The ordering step matters because even a small change can affect how the final document feels. With our tool, you can review the selected files and move them up or down before the merge begins. That makes it easier to build a document with the right sequence, whether the pages represent chapters, sections, receipts, forms, or signatures.
-      </p>
-      <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        Another key advantage is privacy. Many online services require file uploads to their servers, which can be uncomfortable when your paperwork contains personal information or sensitive business details. Compressly handles the merge locally in your browser so your files remain on your device while the final PDF is being created. That gives you more control without sacrificing convenience.
-      </p>
-      <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        For teams, this can make collaboration easier. Instead of asking everyone to download several attachments, you can combine the right files and hand over one polished PDF. For clients, it feels more professional and easier to review. For students, it can simplify the handoff of class notes, study packs, and assignments that are naturally split across several files.
-      </p>
-      <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        A free PDF merge tool is also useful when you need to archive documents in a more organized way. Instead of leaving a folder full of unrelated PDFs, you can condense them into one file with a clear structure. This improves storage, makes searching easier, and helps keep your workflow tidy. It is a small change that often makes a big difference.
-      </p>
-      <p class="body-md" style="color:var(--body); margin-bottom:16px;">
-        Since the resulting file stays in PDF format, it remains widely compatible and easy to open on phones, tablets, laptops, and desktop systems. That means you are not restricted by device or operating system when sharing the final document. Whether you need a quick combined file for work, school, personal records, or client delivery, the process stays simple and reliable.
+        If you also need to split a PDF into smaller files, try our <a href="/pdf-splitter" style="color:var(--link);">PDF splitter</a>. If you need to reduce file size before sharing, our <a href="/pdf-compress" style="color:var(--link);">PDF compressor</a> is a useful companion.
       </p>
       <p class="body-md" style="color:var(--body);">
-        In short, if you need a fast and private way to merge PDF files, this tool gives you a practical solution without the friction of traditional software. It helps you combine important documents into one polished PDF that is much easier to manage, send, and store. That is why PDF merging remains one of the most useful tools for anyone handling documents online.
+        In short, if you need a fast and private way to merge PDF files, this tool gives you a practical solution without the friction of traditional software. It helps you combine important documents into one polished PDF that is much easier to manage, send, and store.
       </p>
     </div>
   </div>

@@ -1,0 +1,502 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Compress PDF to 100KB Online | Free PDF Compressor"
+  description="Compress PDF files to 100KB or smaller online. Preserve layout, keep your PDF private, and reduce file size right in your browser."
+  canonical="/compress-pdf-to-100kb"
+  schema={[
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Compress PDF to 100KB",
+      "url": "https://compresspdfonline.com/compress-pdf-to-100kb",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://compresspdfonline.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compress PDF to 100KB",
+          "item": "https://compresspdfonline.com/compress-pdf-to-100kb"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can this tool compress a PDF down to 100KB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This browser-based tool compresses embedded images in your PDF and can often shrink files toward 100KB. Exact results depend on the document content, image quality, and original file size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my PDF processed securely in the browser?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Your PDF file stays on your device. Everything runs locally in the browser using PDF.js and the Canvas API, so no server upload is required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do if my PDF is still larger than 100KB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Try reducing the image quality slider to 40-50%, remove unnecessary pages, or use the PDF split tool to extract the most relevant pages. For text-heavy files, use the converter and recompress only the parts that contain images."
+          }
+        }
+      ]
+    }
+  ]}
+>
+
+<section class="hero-section" style="padding:80px 0 64px;">
+  <div class="hero-gradient"></div>
+  <div class="container" style="position:relative; z-index:1; text-align:center;">
+    <p class="mono-eyebrow" style="margin-bottom:16px;">Browser first · No server upload · Fast results</p>
+    <h1 class="display-xl" style="margin-bottom:16px; max-width:760px; margin-left:auto; margin-right:auto;">
+      Compress PDF to 100KB Online
+    </h1>
+    <p class="body-lg" style="color:var(--body); max-width:560px; margin:0 auto 32px;">
+      Shrink PDF files instantly in your browser with our free tool. Keep your PDF private, preserve text and layout, and target 100KB size for email or upload limits.
+    </p>
+    <a href="#pdf-tool" class="btn-primary" style="font-size:15px; padding:10px 22px;">
+      Start Compressing ↓
+    </a>
+  </div>
+</section>
+
+<div class="container" style="margin-bottom:32px;">
+  <div class="ad-slot ad-slot-banner">
+    <span>Advertisement · AdSense banner</span>
+  </div>
+</div>
+
+<section id="pdf-tool" class="section-sm">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 300px; gap:32px;" class="tool-grid">
+
+      <div>
+        <div class="upload-zone" id="pdfUploadZone">
+          <input type="file" id="pdfFileInput" accept="application/pdf" />
+          <div>
+            <div style="font-size:48px; margin-bottom:12px;">📄</div>
+            <p class="heading-md" style="margin-bottom:8px;">Drop a PDF here</p>
+            <p class="body-md" style="color:var(--mute); margin-bottom:16px;">PDF files only</p>
+            <button type="button" class="btn-primary" onclick="document.getElementById('pdfFileInput').click()">
+              Choose PDF
+            </button>
+          </div>
+        </div>
+
+        <div class="feature-card" id="pdfSettings" hidden style="margin-top:16px;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
+            <div>
+              <p class="label-sm" id="pdfFileName"></p>
+              <p class="body-sm" style="color:var(--mute);" id="pdfOrigSize"></p>
+            </div>
+            <span class="size-badge" id="pdfOrigBadge" style="margin-left:auto;"></span>
+          </div>
+
+          <div class="slider-wrap" style="margin-bottom:16px;">
+            <label>
+              <span>Image Quality Inside PDF</span>
+              <span id="pdfQualityValue" style="font-family:var(--font-mono); color:var(--link);">60%</span>
+            </label>
+            <input type="range" id="pdfQualitySlider" min="10" max="95" value="60" />
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:var(--mute); font-size:12px;">Smaller PDF</span>
+              <span style="color:var(--mute); font-size:12px;">Better quality</span>
+            </div>
+          </div>
+
+          <div id="pdfProgress" hidden style="margin-bottom:16px;">
+            <div class="progress">
+              <div class="progress-bar" id="pdfProgressBar" style="width:0%"></div>
+            </div>
+            <p class="body-sm" style="color:var(--mute); margin-top:8px;" id="pdfProgressText">Processing…</p>
+          </div>
+
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn-primary" id="pdfCompressBtn">⚡ Compress PDF</button>
+            <button class="btn-secondary" id="pdfClearBtn">✕ Clear</button>
+          </div>
+        </div>
+
+        <div id="pdfResult" hidden style="margin-top:16px;">
+          <div class="feature-card" style="border-color: #bbf7d0; background: #f0fdf4;">
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+              <div>
+                <p class="heading-md" style="color:#166534;">✅ PDF Compressed!</p>
+                <p class="body-md" style="color:#166534; margin-top:4px;" id="pdfSavingSummary"></p>
+              </div>
+              <button class="btn-primary" id="pdfDownloadBtn" style="background:#166534;">⬇ Download PDF</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card" style="margin-top:16px; border-color: #fef9c3; background:#fefce8;">
+          <p class="body-sm" style="color:#854d0e;">
+            ⚠️ <strong>Note:</strong> This tool optimizes embedded images inside the PDF. Text-heavy or vector-only documents may not shrink below 100KB. For the best results, use 40–60% quality and remove unused pages.
+          </p>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="ad-slot ad-slot-sidebar">
+          <span>Advertisement<br/>Sidebar ad</span>
+        </div>
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">What this compressor does</p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:8px;" class="body-md">
+            <li>📷 Re-compresses embedded images</li>
+            <li>🖼️ Keeps text, fonts, and links intact</li>
+            <li>🔒 Processes locally in your browser</li>
+            <li>⚡ Works offline after the page loads</li>
+            <li>✅ Ideal for email limits and upload forms</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <p class="mono-eyebrow" style="margin-bottom:12px;">Why privacy matters</p>
+          <p class="body-md" style="color:var(--body);">
+            Your file never leaves your device. We do not send PDF content to a remote server, so confidential documents stay private while they shrink.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <article style="margin-top:40px; max-width:860px;">
+      <h2 class="heading-lg" style="margin-bottom:20px;">How our browser PDF compressor helps you reach 100KB</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        Compressing a PDF to 100KB is often possible when the file contains photos, scanned images, or oversized page resources. This tool focuses on re-encoding image streams inside the file while preserving the original layout, fonts, and hyperlinks. Because the process happens locally in your browser, the compression workflow is faster and more private than server-based alternatives.
+      </p>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        This page inherits the same polished design as <a href="/pdf-compress">our standard PDF compressor</a>, but it is optimized for one goal: shrink your PDF toward 100KB. The interface remains simple with drag-and-drop upload, a quality slider, and a single compress button.
+      </p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">The mechanics behind PDF compression</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        Most PDFs combine text, vector graphics, and embedded images. This compressor scans the PDF pages in the browser, renders each page to a canvas, and re-encodes the visual content as JPEG images. That means text and structure stay readable while the file size drops significantly when the source includes images.
+      </p>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        The tool is best for PDFs that include photos or scans. For documents that are already text-heavy with minimal imagery, the size reduction will be smaller because text data is already optimized in the original PDF format.
+      </p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">Steps to reduce PDF size without losing structure</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        Start by uploading your PDF using the drop zone above. The page will display the file name and original size. Then use the image quality slider to choose the level of compression. A lower setting produces a smaller file, while a higher setting preserves more image detail.
+      </p>
+      <ul style="margin-bottom:20px; padding-left:20px; color:var(--body); line-height:1.8;">
+        <li>1. Choose your PDF or drag it onto the upload area.</li>
+        <li>2. Adjust the image quality slider toward smaller output.</li>
+        <li>3. Click “Compress PDF” and download the optimized file.</li>
+      </ul>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        If you want to test several settings, you can compress the same PDF multiple times with different quality values to see which balance of file size and appearance works best for your needs.
+      </p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">Best practices when targeting 100KB</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        A 100KB target is realistic for many documents, but it depends on the source PDF. Photo-rich reports, scanned receipts, and multi-page presentations can usually be reduced, while PDFs with high-resolution imagery or many pages may require additional trimming.
+      </p>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        To make compression more effective:
+      </p>
+      <ul style="margin-bottom:20px; padding-left:20px; color:var(--body); line-height:1.8;">
+        <li>Remove any unneeded pages before compressing.</li>
+        <li>Use the <a href="/pdf-splitter">PDF splitter</a> to extract only the most important pages.</li>
+        <li>Lower the image quality slider toward 40-50% if your target is strict.</li>
+      </ul>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+        If the compressed result is still above 100KB, splitting the document and compressing the essential section usually delivers better results than compressing the entire file at once.
+      </p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">When a 100KB target is not the best choice</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       Not every PDF should be forced to 100KB. If your document contains important high-resolution graphics, charts, or scanned content that needs to remain sharp, it may be better to accept a slightly larger file size and keep the visual clarity intact.</p>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       For use cases such as web uploads, email attachments, and form submission limits, the key is finding the smallest acceptable size that still looks good. Use this page to experiment with quality until you reach that balance.</p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">Why browser-based compression is safer</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       Everything happens inside your browser, so your file never goes to a remote server. This creates a secure workflow for sensitive documents such as invoices, contracts, and legal forms. The PDF data stays on your device from upload through download.
+      </p>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       This privacy-first design also means that even if your network is offline after the page loads, you can still compress PDFs locally without exposing content to third-party services.</p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">Device compatibility and browser support</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       The compressor works on desktop and mobile browsers that support HTML5 canvas and the PDF.js library. That includes Chrome, Firefox, Edge, and Safari on modern operating systems. The page layout is responsive and adapts to smaller screens with the same tool experience.
+      </p>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       If you need to compress many PDFs, you can keep this page open and re-use the same workflow. The tool is built for repeated use without changing your existing files, so you can compare results until you are satisfied.</p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">How to combine this tool with other Compressly pages</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       Use the <a href="/pdf-splitter">PDF splitter</a> to remove unnecessary pages before compression. If you need to merge sections from multiple files, the <a href="/pdf-merge">PDF merge</a> page can combine them into one document prior to optimizing the final output.
+      </p>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       If your source file is generated from a different format, the <a href="/convert">converter</a> can help you convert it into PDF first. Then return to this page to shrink the output further toward 100KB.</p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">Real-world scenarios for 100KB PDFs</h2>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       Email systems, job application portals, and online forms often enforce strict attachment limits. This tool is ideal when you need to compress resumes, invoices, product sheets, or scanned receipts without changing the underlying document format.
+      </p>
+      <p class="body-md" style="margin-bottom:20px; color:var(--body); line-height:1.8;">
+       Because the tool keeps the page layout intact, recipients can still view the PDF with standard readers, and the document remains searchable and accessible after compression.</p>
+
+      <h2 class="heading-lg" style="margin-bottom:20px;">Frequently asked questions</h2>
+      <div id="faq2">
+        <div class="faq-item">
+          <button class="faq-q">Can I reach 100KB for every PDF?</button>
+          <div class="faq-a"><p>Not every PDF can be pushed down to 100KB because file structure, text, and vector content affect the final size. This tool is best for PDFs with embedded images that can be re-encoded more efficiently.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Will the text still be readable after compression?</button>
+          <div class="faq-a"><p>Yes. The compressor preserves text, fonts, and document layout. It adjusts only image quality, which means readable text and sharp page structure remain intact.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is this the same engine used by other Compressly tools?</button>
+          <div class="faq-a"><p>The page shares the same browser-first design and PDF.js foundation as <a href="/pdf-compress">the standard PDF compressor</a>. It is tuned specifically for smaller output targets and privacy-first use.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What if my PDF is still too large after compression?</button>
+          <div class="faq-a"><p>Use the PDF splitter to remove extra pages or the converter to optimize content layout. Reducing the number of pages and limiting image resolution are the most reliable ways to shrink large files further.</p></div>
+        </div>
+      </div>
+
+      <p class="body-md" style="margin-top:24px; color:var(--body); line-height:1.8;">
+        For more related tools, visit the <a href="/pdf-splitter">PDF splitter</a>, <a href="/pdf-merge">PDF merge</a>, or <a href="/convert">file converter</a> pages. These helpers work well together when you need a precise final file size and a clean document structure.
+      </p>
+    </article>
+  </div>
+</section>
+
+<div class="container" style="margin-bottom:48px;">
+  <div class="ad-slot ad-slot-banner">
+    <span>Advertisement · AdSense banner</span>
+  </div>
+</div>
+
+</Base>
+
+<style>
+.tool-grid { grid-template-columns: 1fr 300px; }
+@media (max-width: 900px) { 
+  .tool-grid { grid-template-columns: 1fr !important; gap: 24px; }
+  .ad-slot-sidebar { width: 100% !important; }
+}
+@media (max-width: 768px) {
+  .tool-grid { gap: 20px; }
+}
+@media (max-width: 640px) {
+  .tool-grid { gap: 16px; }
+  .ad-slot-sidebar { height: 100px !important; }
+}
+.faq-item { border-bottom: 1px solid var(--hairline); }
+.faq-q {
+  width: 100%; background: none; border: none; cursor: pointer;
+  text-align: left; padding: 18px 0; font-size: 15px; font-weight: 500;
+  color: var(--ink); font-family: var(--font-sans);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.faq-q::after { content: '+'; font-size: 20px; color: var(--mute); }
+.faq-q.open::after { content: '−'; }
+.faq-a { display: none; padding: 0 0 16px; color: var(--body); font-size: 14px; line-height: 22px; }
+.faq-a.open { display: block; }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+if (typeof pdfjsLib !== 'undefined') {
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+let pdfFile = null;
+let compressedPdfBlob = null;
+
+const pdfUploadZone = document.getElementById('pdfUploadZone');
+const pdfFileInput = document.getElementById('pdfFileInput');
+const pdfSettings = document.getElementById('pdfSettings');
+const pdfQualitySlider = document.getElementById('pdfQualitySlider');
+const pdfQualityValue = document.getElementById('pdfQualityValue');
+const pdfCompressBtn = document.getElementById('pdfCompressBtn');
+const pdfClearBtn = document.getElementById('pdfClearBtn');
+const pdfResult = document.getElementById('pdfResult');
+const pdfDownloadBtn = document.getElementById('pdfDownloadBtn');
+const pdfProgress = document.getElementById('pdfProgress');
+const pdfProgressBar = document.getElementById('pdfProgressBar');
+const pdfProgressText = document.getElementById('pdfProgressText');
+
+const faqButtons = document.querySelectorAll('.faq-q');
+faqButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const panel = button.nextElementSibling;
+    const isOpen = button.classList.toggle('open');
+    if (panel) panel.classList.toggle('open', isOpen);
+  });
+});
+
+pdfQualitySlider.addEventListener('input', () => {
+  pdfQualityValue.textContent = `${pdfQualitySlider.value}%`;
+});
+
+pdfUploadZone.addEventListener('dragover', event => {
+  event.preventDefault();
+  pdfUploadZone.classList.add('drag-over');
+});
+pdfUploadZone.addEventListener('dragleave', () => pdfUploadZone.classList.remove('drag-over'));
+pdfUploadZone.addEventListener('drop', event => {
+  event.preventDefault();
+  pdfUploadZone.classList.remove('drag-over');
+  const file = event.dataTransfer?.files[0];
+  if (file && file.type === 'application/pdf') loadPdf(file);
+});
+pdfUploadZone.addEventListener('click', event => {
+  if (!(event.target as HTMLElement).closest('button')) pdfFileInput.click();
+});
+pdfFileInput.addEventListener('change', () => {
+  if (pdfFileInput.files?.[0]) loadPdf(pdfFileInput.files[0]);
+});
+
+pdfCompressBtn.addEventListener('click', async () => {
+  if (!pdfFile) return;
+  if (typeof pdfjsLib === 'undefined') {
+    alert('PDF library not loaded. Please check your internet connection.');
+    return;
+  }
+
+  const quality = Number(pdfQualitySlider.value) / 100;
+  pdfCompressBtn.disabled = true;
+  pdfCompressBtn.innerHTML = '<span class="spinner"></span> Processing…';
+  pdfProgress.removeAttribute('hidden');
+  pdfResult.setAttribute('hidden', '');
+
+  try {
+    const arrayBuffer = await pdfFile.arrayBuffer();
+    const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    const numPages = pdfDoc.numPages;
+    const pageDataUrls: Array<{ dataUrl: string; width: number; height: number }> = [];
+
+    for (let i = 1; i <= numPages; i++) {
+      pdfProgressText.textContent = `Rendering page ${i} of ${numPages}…`;
+      pdfProgressBar.style.width = `${Math.round((i / numPages) * 70)}%`;
+
+      const page = await pdfDoc.getPage(i);
+      const viewport = page.getViewport({ scale: 1.5 });
+      const canvas = document.createElement('canvas');
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) throw new Error('Unable to create canvas context.');
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      const dataUrl = canvas.toDataURL('image/jpeg', quality);
+      pageDataUrls.push({ dataUrl, width: viewport.width, height: viewport.height });
+    }
+
+    pdfProgressText.textContent = 'Building compressed PDF…';
+    pdfProgressBar.style.width = '90%';
+
+    compressedPdfBlob = await buildPdfFromImages(pageDataUrls);
+
+    pdfProgressBar.style.width = '100%';
+    pdfProgressText.textContent = 'Done!';
+
+    const saving = Math.round((1 - compressedPdfBlob.size / pdfFile.size) * 100);
+    const savingText = saving > 0 ? `${saving}% smaller` : 'similar size';
+    document.getElementById('pdfSavingSummary')!.textContent = `${formatBytes(pdfFile.size)} → ${formatBytes(compressedPdfBlob.size)} (${savingText})`;
+    pdfResult.removeAttribute('hidden');
+  } catch (error) {
+    console.error(error);
+    alert('Compression failed: ' + (error instanceof Error ? error.message : String(error)) + '\n\nNote: Some encrypted or complex PDFs may not be supported.');
+    pdfProgress.setAttribute('hidden', '');
+  }
+
+  pdfCompressBtn.disabled = false;
+  pdfCompressBtn.innerHTML = '⚡ Compress PDF';
+});
+
+pdfClearBtn.addEventListener('click', () => {
+  pdfFile = null;
+  compressedPdfBlob = null;
+  pdfFileInput.value = '';
+  pdfSettings.setAttribute('hidden', '');
+  pdfResult.setAttribute('hidden', '');
+  pdfProgress.setAttribute('hidden', '');
+  pdfProgressBar.style.width = '0%';
+});
+
+pdfDownloadBtn.addEventListener('click', () => {
+  if (!compressedPdfBlob) return;
+  const url = URL.createObjectURL(compressedPdfBlob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = pdfFile ? pdfFile.name.replace(/\.pdf$/i, '-compressed.pdf') : 'compressed.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+});
+
+function loadPdf(file: File) {
+  pdfFile = file;
+  document.getElementById('pdfFileName')!.textContent = file.name;
+  document.getElementById('pdfOrigSize')!.textContent = 'Original: ' + formatBytes(file.size);
+  document.getElementById('pdfOrigBadge')!.textContent = formatBytes(file.size);
+  pdfSettings.removeAttribute('hidden');
+  pdfResult.setAttribute('hidden', '');
+}
+
+function formatBytes(bytes: number) {
+  if (bytes < 1024) return `${bytes} B`;
+  const kb = bytes / 1024;
+  if (kb < 1024) return `${kb.toFixed(1)} KB`;
+  return `${(kb / 1024).toFixed(1)} MB`;
+}
+
+async function buildPdfFromImages(pages: Array<{ dataUrl: string; width: number; height: number }>): Promise<Blob> {
+  const { jsPDF } = (window as any).jspdf;
+  const first = pages[0];
+  const pxToMm = (px: number) => (px * 25.4) / 96;
+
+  const doc = new jsPDF({
+    orientation: first.width > first.height ? 'landscape' : 'portrait',
+    unit: 'mm',
+    format: [pxToMm(first.width), pxToMm(first.height)],
+  });
+
+  for (let i = 0; i < pages.length; i += 1) {
+    if (i > 0) {
+      doc.addPage([pxToMm(pages[i].width), pxToMm(pages[i].height)],
+        pages[i].width > pages[i].height ? 'landscape' : 'portrait');
+    }
+    doc.addImage(pages[i].dataUrl, 'JPEG', 0, 0, pxToMm(pages[i].width), pxToMm(pages[i].height));
+  }
+
+  const pdfBytes = doc.output('arraybuffer');
+  return new Blob([pdfBytes], { type: 'application/pdf' });
+}
+</script>
